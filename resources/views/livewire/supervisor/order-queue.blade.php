@@ -11,7 +11,7 @@
 <div class="content">
     <div class="card">
         <div class="card-body">
-            <h4 class=" mb-3" style="font-weight: 600">Order Queue Today</h4>
+            <h4 class=" mb-3" style="font-weight: 600">Antrian Pesanan Hari Ini</h4>
             <div class="row">
                 <div class="col-lg-3 col-sm-6 col-12 d-flex">
                     <div class="dash-count">
