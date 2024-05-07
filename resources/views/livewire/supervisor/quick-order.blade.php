@@ -13,7 +13,7 @@
             <div class="card px-3">
                 <div class="card-header">
                     <h4 class="card-title
-                    ">Choose Service</h4>
+                    ">Pilih Layanan</h4>
                 </div>
                 <a class="btn btn-primary  mb-5 font-bold" data-bs-toggle="collapse" href="#service" role="button"
                     aria-expanded="false" aria-controls="service">
