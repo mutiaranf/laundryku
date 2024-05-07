@@ -193,7 +193,7 @@
                             <span class="status online"></span></span>
                         <div class="profilesets">
                             <h6>{{ Auth::user()->name }}</h6>
-                            <h5>Admin</h5>
+                            <h5 style="text-transform: capitalize; !impoertant">{{trim(Auth::user()->roles->pluck('name'),"[]\"") }}</h5>
                         </div>
                     </div>
                     <hr class="m-0" />
