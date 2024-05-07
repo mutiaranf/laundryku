@@ -42,7 +42,7 @@
     <livewire:admin.partial.sidebar />
     <div class="page-wrapper">
         {{ $slot }}
-    </div>1
+    </div>
 </div>
 
 
