@@ -11,7 +11,7 @@
                             Rp. <span class="counters"
                                 data-count="{{ $totalCashBalance }}">{{ number_format($totalCashBalance, 0, ',', '.') }}</span>
                         </h5>
-                        <h6>Total Cash Balance</h6>
+                        <h6>Total Saldo Kas </h6>
                     </div>
                 </div>
             </div>
@@ -25,7 +25,7 @@
                             Rp. <span class="counters"
                                 data-count="{{ $totalIncome }}">{{ number_format($totalIncome, 0, ',', '.') }}</span>
                         </h5>
-                        <h6>Total Income</h6>
+                        <h6>Total Pendapatan</h6>
                     </div>
                 </div>
             </div>
@@ -39,7 +39,7 @@
                             Rp. <span class="counters"
                                 data-count="{{ $totalProfit }}">{{ number_format($totalProfit, 0, ',', '.') }}</span>
                         </h5>
-                        <h6>Total Profit</h6>
+                        <h6>Total Keuntungan</h6>
                     </div>
                 </div>
             </div>
@@ -53,7 +53,7 @@
                             Rp. <span class="counters"
                                 data-count="{{ $totalExpense }}">{{ number_format($totalExpense, 0, ',', '.') }}</span>
                         </h5>
-                        <h6>Total Expenze</h6>
+                        <h6>Total Pengeluaran</h6>
                     </div>
                 </div>
             </div>
