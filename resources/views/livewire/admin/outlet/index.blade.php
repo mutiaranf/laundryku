@@ -11,12 +11,12 @@
 <div class="content">
     <div class="page-header">
         <div class="page-title">
-            <h4>Outlet List</h4>
-            <h6>Manage Outlets</h6>
+            <h4>Daftar Outlet</h4>
+            <h6>Kelola Outlet</h6>
         </div>
         <div class="page-btn">
             <a href="{{ route('outlet.create') }}" class="btn btn-added" wire:navigate><img
-                    src="{{ asset('assets/img/icons/plus.svg') }} " alt="img" />Add
+                    src="{{ asset('assets/img/icons/plus.svg') }} " alt="img" />Tambah
                 Outlet</a>
         </div>
     </div>
@@ -32,7 +32,7 @@
                         </a>
                     </div>
                     <div class="search-input me-2">
-                        <input wire:model.live.debounce="search" type="text" placeholder="Search"
+                        <input wire:model.live.debounce="search" type="text" placeholder="Cari"
                             class="form-control" />
                     </div>
                     <!-- per page -->
@@ -75,7 +75,7 @@
                         <div class="col-lg-2 col-sm-6 col-12">
                             <div class="form-group">
                                 <input wire:model.live.debounce="addressSearch" type="text"
-                                    placeholder="Enter address" />
+                                    placeholder="Masukkan alamat" />
                             </div>
                         </div>
 
@@ -98,14 +98,14 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Photo</th>
-                            <th>Name</th>
-                            <th>Phone</th>
-                            <th>Address</th>
-                            <th>Latitude</th>
-                            <th>Longitude</th>
+                            <th>Foto</th>
+                            <th>Nama</th>
+                            <th>Telepon</th>
+                            <th>Alamat</th>
+                            <th>Lintang</th>
+                            <th>Bujur</th>
                             <th>Status</th>
-                            <th>Action</th>
+                            <th>Tindakan</th>
 
                         </tr>
                     </thead>
@@ -133,9 +133,9 @@
                                 <td>{{ $outlet->longitude }}</td>
                                 <td>
                                     @if ($outlet->status == 1)
-                                        <span class="badge bg-success">Open</span>
+                                        <span class="badge bg-success">Buka</span>
                                     @else
-                                        <span class="badge bg-danger">Closed</span>
+                                        <span class="badge bg-danger">Tutup</span>
                                     @endif
                                 </td>
                                 <td>
@@ -189,7 +189,7 @@
                                 <div class="col-lg-3">
                                     <div class="form-group
                                 ">
-                                        <label>Outlet Name</label>
+                                        <label>Nama Outlet</label>
                                         <input type="text" class="form-control" value="{{ $name }}"
                                             disabled>
                                     </div>
@@ -197,7 +197,7 @@
                                 <div class="col-lg-3">
                                     <div class="form-group
                                 ">
-                                        <label>Phone</label>
+                                        <label>Telepon</label>
                                         <input type="text" class="form-control" value="{{ $phone }}"
                                             disabled>
                                     </div>
@@ -205,7 +205,7 @@
                                 <div class="col-lg-3">
                                     <div class="form-group
                                 ">
-                                        <label>Address</label>
+                                        <label>Alamat</label>
                                         <input type="text" class="form-control" value="{{ $address }}"
                                             disabled>
                                     </div>
@@ -213,7 +213,7 @@
                                 <div class="col-lg-3">
                                     <div class="form-group
                                 ">
-                                        <label>Latitude</label>
+                                        <label>Lintang</label>
                                         <input type="text" class="form-control" value="{{ $latitude }}"
                                             disabled>
                                     </div>
@@ -221,7 +221,7 @@
                                 <div class="col-lg-3">
                                     <div class="form-group
                                 ">
-                                        <label>Longitude</label>
+                                        <label>Bujur</label>
                                         <input type="text" class="form-control" value="{{ $longitude }}"
                                             disabled>
                                     </div>
@@ -229,7 +229,7 @@
                                 <div class="col-lg-3">
                                     <div class="form-group
                                 ">
-                                        <label>Start Operation</label>
+                                        <label>Mulai Operasi</label>
                                         <input type="text" class="form-control" value="{{ $start_operation }}"
                                             disabled>
                                     </div>
@@ -237,7 +237,7 @@
                                 <div class="col-lg-3">
                                     <div class="form-group
                                 ">
-                                        <label>End Operation</label>
+                                        <label>Akhir Operasi</label>
                                         <input type="text" class="form-control" value="{{ $end_operation }}0"
                                             disabled>
                                     </div>
@@ -247,7 +247,7 @@
                                 ">
                                         <label>Status</label>
                                         <input type="text" class="form-control"
-                                            value="{{ $status == 0 ? 'Closed' : 'Open' }}" disabled>
+                                            value="{{ $status == 0 ? 'Tutup' : 'Buka' }}" disabled>
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
@@ -268,7 +268,7 @@
                                                 Rp. <span class="counters"
                                                     data-count="{{ $cashBalance }}">{{ number_format($cashBalance, 0, ',', '.') }}</span>
                                             </h5>
-                                            <h6>Total Cash Balance</h6>
+                                            <h6>Total Saldo Tunai</h6>
                                         </div>
                                     </div>
                                 </div>
@@ -282,7 +282,7 @@
                                                 Rp.<span class="counters"
                                                     data-count="{{ $income }}">{{ number_format($income, 0, ',', '.') }}</span>
                                             </h5>
-                                            <h6>Total Income - {{ Carbon\Carbon::now()->isoFormat('MMMM YYYY') }}</h6>
+                                            <h6>Total Pendapatan - {{ Carbon\Carbon::now()->isoFormat('MMMM YYYY') }}</h6>
                                         </div>
                                     </div>
                                 </div>
@@ -296,7 +296,7 @@
                                                 Rp.<span class="counters"
                                                     data-count="{{ $expense }}">{{ number_format($expense, 0, ',', '.') }}</span>
                                             </h5>
-                                            <h6>Total Expense Amount -
+                                            <h6>Total Jumlah Pengeluaran -
                                                 {{ Carbon\Carbon::now()->isoFormat('MMMM YYYY') }}
                                             </h6>
                                         </div>
@@ -312,7 +312,7 @@
                                                 RP.<span class="counters"
                                                     data-count="{{ $profit }}">{{ number_format($profit, 0, ',', '.') }}</span>
                                             </h5>
-                                            <h6>Total Profit Amount -
+                                            <h6>Total Jumlah Keuntungan -
                                                 {{ Carbon\Carbon::now()->isoFormat('MMMM YYYY') }}
                                             </h6>
                                         </div>
@@ -322,7 +322,7 @@
                                     <div class="dash-count">
                                         <div class="dash-counts">
                                             <h4>{{ $customer_count }}</h4>
-                                            <h5>Customers</h5>
+                                            <h5>Pelanggan</h5>
                                         </div>
                                         <div class="dash-imgs">
                                             <i data-feather="user"></i>
@@ -333,7 +333,7 @@
                                     <div class="dash-count das3">
                                         <div class="dash-counts">
                                             <h4>{{ $order_count }}</h4>
-                                            <h5>Order</h5>
+                                            <h5>Pesanan</h5>
                                         </div>
                                         <div class="dash-imgs">
                                             <i data-feather="file"></i>
@@ -342,6 +342,45 @@
                                 </div>
                             </div>
                         @endif
+                        <div class="table-responsive">
+
+                            <table class="table ">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Bulan</th>
+                                        <th>Completed</th>
+                                        <th>Processed</th>
+                                        <th>Cancelled</th>
+
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @if ($ordersRecap != null)
+                                        @foreach ($ordersRecap as $index => $data)
+                                            <tr>
+                                                <td>{{ $index + 1 }}</td>
+                                                <td>{{ $data->month }}</td>
+                                                <td>{{ $data->completed }}</td>
+                                                <td>{{ $data->processed }}</td>
+                                                <td>{{ $data->cancelled }}</td>
+                                            </tr>
+                                        @endforeach
+                                    @endif
+
+                                </tbody>
+                            </table>
+                            <div class="d-flex mt-3">
+                                <div class="me-auto">
+                                    {{ $outlets->links() }}
+                                </div>
+                            </div>
+
+
+                        </div>
+
+
 
                     </div>
                 </div>
@@ -368,7 +407,7 @@
 
                 // create alert
                 function yourLoggedin() {
-                    toastr.warning('Your Logged in!');
+                    toastr.warning('Anda Telah Masuk!');
                 }
 
                 // hide alrt after 2 seconds

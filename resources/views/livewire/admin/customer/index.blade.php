@@ -11,14 +11,14 @@
 <div class="content">
     <div class="page-header">
         <div class="page-title">
-            <h4>Customer List</h4>
-            <h6>Manage Customer</h6>
+            <h4>Daftar Pelanggan</h4>
+            <h6>Kelola Pelanggan</h6>
         </div>
         <div class="page-btn">
             <a href="{{route('customer.create')}}" class="btn btn-added" wire:navigate><img
                     src="{{ asset('assets/img/icons/plus.svg') }} "
-                    alt="img"/>Add
-                Customer</a>
+                    alt="img"/>Tambah
+                Pelanggan</a>
         </div>
     </div>
 
@@ -33,7 +33,7 @@
                         </a>
                     </div>
                     <div class="search-input me-2">
-                        <input wire:model.live.debounce="search" type="text" placeholder="Search" class="form-control"/>
+                        <input wire:model.live.debounce="search" type="text" placeholder="Cari" class="form-control"/>
                     </div>
                     <!-- per page -->
                     <div class="per-page me-2">
@@ -75,13 +75,13 @@
                         <div class="col-lg-2 col-sm-6 col-12">
                             <div class="form-group">
                                 <input wire:model.live.debounce="phoneSearch" type="text"
-                                       placeholder="Enter Phone"/>
+                                       placeholder="Masukkan Nomor Telepon"/>
                             </div>
                         </div>
                         <div class="col-lg-2 col-sm-6 col-12">
                             <div class="form-group">
                                 <input wire:model.live.debounce="addressSearch" type="text"
-                                       placeholder="Enter Address"/>
+                                       placeholder="Masukkan Alamat"/>
                             </div>
                         </div>
                         <div class="col-lg-1 col-sm-6 col-12 ms-auto">
@@ -103,12 +103,12 @@
                     <thead>
                     <tr>
                         <th>No</th>
-                        <th>Name</th>
-                        <th>Phone</th>
-                        <th>Address</th>
-                        <th>Latitude</th>
-                        <th>Longitude</th>
-                        <th>Action</th>
+                        <th>Nama</th>
+                        <th>Nomor Telepon</th>
+                        <th>Alamat</th>
+                        <th>Lintang</th>
+                        <th>Bujur</th>
+                        <th>Tindakan</th>
 
                     </tr>
                     </thead>
@@ -122,10 +122,10 @@
                             <td>{{ $customer->latitude }}</td>
                             <td>{{ $customer->longitude }}</td>
                             <td>
-                                <a wire:click="" class="me-2" href="">
+                                <a class="me-2" href="{{route('customer.edit', $customer->id)}}">
                                     <img src="{{asset('assets/img/icons/edit.svg')}}" alt="img"/>
                                 </a>
-                                <a  class="me-2 confirm-text">
+                                <a wire:click="delete({{ $customer->id }})"  class="me-2 confirm-text">
                                     <img src="{{asset('assets/img/icons/delete.svg')}}" alt="img"/>
                                 </a>
                             </td>
@@ -150,7 +150,7 @@
             <div class="modal-dialog modal-xl">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Detail Employee</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Detail Karyawan</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -189,7 +189,7 @@
 
             // create alert
             function yourLoggedin() {
-                toastr.warning('Your Logged in!');
+                toastr.warning('Anda Telah Masuk!');
             }
 
             // hide alrt after 2 seconds

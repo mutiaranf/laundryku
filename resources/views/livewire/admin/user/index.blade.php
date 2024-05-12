@@ -11,14 +11,14 @@
 <div class="content">
     <div class="page-header">
         <div class="page-title">
-            <h4>User List</h4>
-            <h6>Manage Users</h6>
+            <h4>Daftar Pengguna</h4>
+            <h6>Kelola Pengguna</h6>
         </div>
         <div class="page-btn">
             <a href="{{ route('user.create') }}" class="btn btn-added" wire:navigate><img
                     src="{{ asset('assets/img/icons/plus.svg') }} "
-                    alt="img"/>Add
-                User</a>
+                    alt="img"/>Tambah
+                Pengguna</a>
         </div>
     </div>
 
@@ -33,7 +33,7 @@
                         </a>
                     </div>
                     <div class="search-input me-2">
-                        <input wire:model.live.debounce="search" type="text" placeholder="Search" class="form-control"/>
+                        <input wire:model.live.debounce="search" type="text" placeholder="Cari" class="form-control"/>
                     </div>
                     <!-- per page -->
                     <div class="per-page me-2">
@@ -76,18 +76,18 @@
                     <div class="row">
                         <div class="col-lg-2 col-sm-6 col-12">
                             <div class="form-group">
-                                <input wire:model.live.debounce="nameSearch" type="text" placeholder="Enter User Name"/>
+                                <input wire:model.live.debounce="nameSearch" type="text" placeholder="Masukkan Nama Pengguna"/>
                             </div>
                         </div>
                         <div class="col-lg-2 col-sm-6 col-12">
                             <div class="form-group">
                                 <input wire:model.live.debounce="phoneSearch" type="text"
-                                       placeholder="Enter Phone Number"/>
+                                       placeholder="Masukkan Nomor Telepon"/>
                             </div>
                         </div>
                         <div class="col-lg-2 col-sm-6 col-12">
                             <div class="form-group">
-                                <input wire:model.live.debounce="emailSearch" type="text" placeholder="Enter Email"/>
+                                <input wire:model.live.debounce="emailSearch" type="text" placeholder="Masukkan Email"/>
                             </div>
                         </div>
 
@@ -96,7 +96,7 @@
                         <div class="col-lg-2 col-sm-6 col-12">
                             <div class="form-group select-group">
                                 <select wire:model.live.debounce="roleSearch" class="form-select">
-                                    <option value="" style="font-size: 13px; color: #6d6d6d">Select Role</option>
+                                    <option value="" style="font-size: 13px; color: #6d6d6d">Pilih Peran</option>
                                     @foreach ($roles as $role)
                                         <option value="{{ $role->name }}">{{ $role->name }}</option>
                                     @endforeach
@@ -122,14 +122,14 @@
                     <thead>
                     <tr>
                         <th>No</th>
-                        <th>Photo</th>
-                        <th>Name</th>
+                        <th>Foto</th>
+                        <th>Nama</th>
                         <th>Email</th>
-                        <th>Phone</th>
-                        <th>Role</th>
+                        <th>Telepon</th>
+                        <th>Peran</th>
                         <th>Status</th>
 
-                        <th>Action</th>
+                        <th>Tindakan</th>
 
                     </tr>
                     </thead>
@@ -152,9 +152,9 @@
                             </td>
                             <td>{{ $user->name }}</td>
                             <td>{{ $user->email }}  @if ($user->status)
-                                    <span class="badge bg-success ms-3">Active</span>
+                                    <span class="badge bg-success ms-3">Aktif</span>
                                 @else
-                                    <span class="badge bg-danger ms-3">Inactive</span>
+                                    <span class="badge bg-danger ms-3">Tidak Aktif</span>
                                 @endif</td>
                             <td>{{ $user->phone }}</td>
                                 @foreach ($user->roles as $key => $role)
@@ -223,7 +223,7 @@
 
             // create alert
             function yourLoggedin() {
-                toastr.warning('Your Logged in!');
+                toastr.warning('Anda Telah Masuk!');
             }
 
             // hide alrt after 2 seconds

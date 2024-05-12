@@ -11,14 +11,14 @@
 <div class="content">
     <div class="page-header">
         <div class="page-title">
-            <h4>Position List</h4>
-            <h6>Manage Position</h6>
+            <h4>Daftar Posisi</h4>
+            <h6>Kelola Posisi</h6>
         </div>
         <div class="page-btn">
             <a data-bs-toggle="modal" data-bs-target="#addPositionModal" class="btn btn-added"><img
                     src="{{ asset('assets/img/icons/plus.svg') }} "
-                    alt="img"/>Add
-                Position</a>
+                    alt="img"/>Tambah
+                Posisi</a>
         </div>
     </div>
 
@@ -28,7 +28,7 @@
                 <div class="search-set">
 
                     <div class="search-input me-2">
-                        <input wire:model.live.debounce="search" type="text" placeholder="Search" class="form-control"/>
+                        <input wire:model.live.debounce="search" type="text" placeholder="Cari" class="form-control"/>
                     </div>
                     <!-- per page -->
                     <div class="per-page me-2">
@@ -54,18 +54,18 @@
                     <div class="row">
                         <div class="col-lg-2 col-sm-6 col-12">
                             <div class="form-group">
-                                <input wire:model.live.debounce="nameSearch" type="text" placeholder="Enter User Name"/>
+                                <input wire:model.live.debounce="nameSearch" type="text" placeholder="Masukkan Nama Pengguna"/>
                             </div>
                         </div>
                         <div class="col-lg-2 col-sm-6 col-12">
                             <div class="form-group">
                                 <input wire:model.live.debounce="phoneSearch" type="text"
-                                       placeholder="Enter Phone Number"/>
+                                       placeholder="Masukkan Nomor Telepon"/>
                             </div>
                         </div>
                         <div class="col-lg-2 col-sm-6 col-12">
                             <div class="form-group">
-                                <input wire:model.live.debounce="emailSearch" type="text" placeholder="Enter Email"/>
+                                <input wire:model.live.debounce="emailSearch" type="text" placeholder="Masukkan Email"/>
                             </div>
                         </div>
 
@@ -89,9 +89,9 @@
                     <thead>
                     <tr>
                         <th>No</th>
-                        <th>Name</th>
-                        <th>Description</th>
-                        <th>Action</th>
+                        <th>Nama</th>
+                        <th>Deskripsi</th>
+                        <th>Tindakan</th>
 
                     </tr>
                     </thead>
@@ -134,7 +134,7 @@
             <div class="modal-dialog modal-xl">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Add Position</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Tambah Posisi</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -143,26 +143,26 @@
                                 <div class="col-lg-6">
                                     <div class="form-group
                                 ">
-                                        <label>Name</label>
+                                        <label>Nama</label>
                                         <input wire:model='name' type="text" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="form-group
                                 ">
-                                        <label>Description</label>
+                                        <label>Deskripsi</label>
                                         <textarea wire:model='description' class="form-control"></textarea>
                                     </div>
                                 </div>
                                 <div class="col-lg-12 mt-3">
                                     <!-- checking action store or update -->
                                     @if($edit_mode)
-                                        <button data-bs-dismiss="modal" wire:click="update({{$id}})" class="btn btn-submit me-2">Update</button>
+                                        <button data-bs-dismiss="modal" wire:click="update({{$id}})" class="btn btn-submit me-2">Perbarui</button>
                                     @else
 
-                                    <button data-bs-dismiss="modal" type="submit" class="btn btn-submit me-2">Submit</button>
+                                    <button data-bs-dismiss="modal" type="submit" class="btn btn-submit me-2">Kirim</button>
                                     @endif
-                                    <a data-bs-dismiss="modal" class="btn btn-cancel">Cancel</a>
+                                    <a data-bs-dismiss="modal" class="btn btn-cancel">Batal</a>
                                 </div>
 
 
@@ -193,7 +193,7 @@
 
             // create alert
             function yourLoggedin() {
-                toastr.warning('Your Logged in!');
+                toastr.warning('Anda Telah Masuk!');
             }
 
             // hide alrt after 2 seconds

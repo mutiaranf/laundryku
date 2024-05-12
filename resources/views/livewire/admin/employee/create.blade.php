@@ -4,8 +4,8 @@
 <div class="content">
     <div class="page-header">
         <div class="page-title">
-            <h4>Employee Management</h4>
-            <h6>Add/Update Employee</h6>
+            <h4>Manajemen Karyawan</h4>
+            <h6>Tambah/Perbarui Karyawan</h6>
         </div>
     </div>
 
@@ -15,7 +15,7 @@
                 <div class="row">
                     <div class="col-lg-3 col-sm-6 col-12">
                         <div class="form-group">
-                            <label>Employee Name</label>
+                            <label>Nama Karyawan</label>
                             <input wire:model="name" type="text"/>
                             @error('name')
                                 <span class="text-danger">{{ $message }}</span>
@@ -33,7 +33,7 @@
                     </div>
                     <div class="col-lg-3 col-sm-6 col-12">
                         <div class="form-group">
-                            <label>Phone</label>
+                            <label>Telepon</label>
                             <input wire:model="phone" type="text"/>
                             @error('phone')
                                 <span class="text-danger">{{ $message }}</span>
@@ -42,9 +42,9 @@
                     </div>
                     <div class="col-lg-3 col-sm-6 col-12">
                         <div class="form-group">
-                            <label>Choose Outlet</label>
+                            <label>Pilih Outlet</label>
                             <select  wire:model="outlet_id" class="form-control">
-                                <option>Choose Outlet</option>
+                                <option>Pilih Outlet</option>
                                 @foreach($outlets as $outlet)
                                     <option value="{{ $outlet->id }}">{{ $outlet->name }}</option>
                                 @endforeach
@@ -56,9 +56,9 @@
                     </div>
                     <div class="col-lg-3 col-sm-6 col-12">
                         <div class="form-group">
-                            <label>Position</label>
+                            <label>Posisi</label>
                             <select  wire:model="position_id" class="form-control">
-                                <option>Choose Position</option>
+                                <option>Pilih Posisi</option>
                                 @foreach($positions as $position)
                                     <option value="{{ $position->id }}">{{ $position->name }}</option>
                                 @endforeach
@@ -70,7 +70,7 @@
                     </div>
                     <div class="col-lg-6 col-12">
                         <div class="form-group">
-                            <label>Address</label>
+                            <label>Alamat</label>
                             <input wire:model="address" type="text"/>
                             @error('address')
                                 <span class="text-danger">{{ $message }}</span>
@@ -79,9 +79,9 @@
                     </div>
                     <div class="col-lg-3 col-12">
                         <div class="form-group">
-                            <label>Gender</label>
+                            <label>Jenis Kelamin</label>
                             <select wire:model="gender" class="form-control">
-                                <option>Choose Gender</option>
+                                <option>Pilih Jenis Kelamin</option>
                                 <option value="laki-laki">Laki-Laki</option>
                                 <option value="perempuan">Perempuan</option>
                             </select>
@@ -92,9 +92,8 @@
                     </div>
 
                     <div class="col-lg-3 col-sm-6 col-12">
-                        <div class="form-group
-                        ">
-                            <label>Salary</label>
+                        <div class="form-group">
+                            <label>Gaji</label>
                             <input wire:model="salary" type="text"/>
                             @error('salary')
                                 <span class="text-danger">{{ $message }}</span>
@@ -102,11 +101,10 @@
                         </div>
                     </div>
                     <div class="col-lg-3 col-sm-6 col-12">
-                        <div class="form-group
-                        ">
+                        <div class="form-group">
                             <label>Status</label>
                             <select wire:model="status" class="form-control">
-                                <option>Choose Status</option>
+                                <option>Pilih Status</option>
                                 <option value="1">Aktif</option>
                                 <option value="0">Tidak Aktif</option>
                             </select>
@@ -116,9 +114,8 @@
                         </div>
                     </div>
                     <div class="col-lg-3 col-sm-6 col-12">
-                        <div class="form-group
-                        ">
-                            <label>Account Number</label>
+                        <div class="form-group">
+                            <label>Nomor Rekening</label>
                             <input wire:model="account_number" type="text"/>
                             @error('account_number')
                                 <span class="text-danger">{{ $message }}</span>
@@ -126,9 +123,8 @@
                         </div>
                     </div>
                     <div class="col-lg-3 col-sm-6 col-12">
-                        <div class="form-group
-                        ">
-                            <label>Date of Birth</label>
+                        <div class="form-group">
+                            <label>Tanggal Lahir</label>
                             <input wire:model="dob" type="date" class="form-control"/>
                             @error('dob')
                                 <span class="text-danger">{{ $message }}</span>
@@ -136,9 +132,8 @@
                         </div>
                     </div>
                     <div class="col-lg-6 col-sm-12 col-12">
-                        <div class="form-group
-                        ">
-                            <label>Photo</label>
+                        <div class="form-group">
+                            <label>Foto</label>
                             <input wire:model="photo" type="file" class="form-control"/>
                             @error('photo')
                                 <span class="text-danger">{{ $message }}</span>
@@ -160,10 +155,10 @@
 
                     <div class="col-lg-12">
                         <button type="submit" class="btn btn-submit me-2"
-                        >Submit</button
+                        >Kirim</button
                         >
                         <a href="javascript:history.back();" class="btn btn-cancel"
-                        >Cancel</a
+                        >Batal</a
                         >
                     </div>
                 </div>

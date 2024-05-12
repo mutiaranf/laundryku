@@ -46,6 +46,11 @@ class Dashboard extends Component
         $totalEmployeeCount = Employee::count();
         $recent_completed_orders = Order::with('customer')->where('order_status','completed')->latest()->take(5)->get();
 
-        return view('livewire.dashboard', compact('CashBalance', 'income', 'expense', 'profit','customer_count','order_count', 'recent_orders','outletId','totalCashBalance','totalIncome','totalExpense','totalProfit','totalCustomerCount','totalOrderCount','totalOutletCount','totalEmployeeCount','recent_completed_orders'));
+        $orders = Order::with('detailOrder', 'customer')
+            ->whereMonth('created_at', now()->month)
+            ->orderByRaw("FIELD(order_status, 'Completed', 'Cancelled') ASC")
+            ->paginate(5);
+
+        return view('livewire.dashboard', compact('CashBalance', 'income', 'expense', 'profit','customer_count','order_count', 'recent_orders','outletId','totalCashBalance','totalIncome','totalExpense','totalProfit','totalCustomerCount','totalOrderCount','totalOutletCount','totalEmployeeCount','recent_completed_orders','orders'));
     }
 }

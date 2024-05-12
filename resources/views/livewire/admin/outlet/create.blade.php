@@ -4,8 +4,8 @@
 <div class="content">
     <div class="page-header">
         <div class="page-title">
-            <h4>Outlet Add</h4>
-            <h6>Create new Outlet</h6>
+            <h4>Tambah Outlet</h4>
+            <h6>Buat Outlet Baru</h6>
         </div>
     </div>
 
@@ -15,7 +15,7 @@
                 <div class="row">
                     <div class="col-lg-3 col-sm-6 col-12">
                         <div class="form-group">
-                            <label>Outlet Name</label>
+                            <label>Nama Outlet</label>
                             <input wire:model="name" type="text"/>
                             @error('name')
                             <span class="text-danger">{{ $message }}</span>
@@ -25,7 +25,7 @@
 
                     <div class="col-lg-3 col-sm-6 col-12">
                         <div class="form-group">
-                            <label>Address</label>
+                            <label>Alamat</label>
                             <input wire:model="address" type="text"/>
                             @error('address')
                             <span class="text-danger">{{ $message }}</span>
@@ -34,7 +34,7 @@
                     </div>
                     <div class="col-lg-3 col-sm-6 col-12">
                         <div class="form-group">
-                            <label>Phone</label>
+                            <label>Nomor Telepon</label>
                             <input wire:model="phone" type="text"/>
                             @error('phone')
                             <span class="text-danger">{{ $message }}</span>
@@ -43,7 +43,7 @@
                     </div>
                     <div class="col-lg-3 col-sm-6 col-12">
                         <div class="form-group">
-                            <label>Start Operation</label>
+                            <label>Jam Mulai Operasi</label>
                             <input wire:model="start_operation" class="form-control" type="time"/>
                             @error('start_operation')
                             <span class="text-danger">{{ $message }}</span>
@@ -52,7 +52,7 @@
                     </div>
                     <div class="col-lg-3 col-sm-6 col-12">
                         <div class="form-group">
-                            <label>End Operation</label>
+                            <label>Jam Selesai Operasi</label>
                             <input wire:model="end_operation" class="form-control" type="time"/>
                             @error('end_operation')
                             <span class="text-danger">{{ $message }}</span>
@@ -61,7 +61,7 @@
                     </div>
                     <div class="col-lg-3 col-sm-6 col-12">
                         <div class="form-group">
-                            <label>Latitude</label>
+                            <label>Lintang</label>
                             <input wire:model="latitude" type="text"/>
                             @error('latitude')
                             <span class="text-danger">{{ $message }}</span>
@@ -70,7 +70,7 @@
                     </div>
                     <div class="col-lg-3 col-sm-6 col-12">
                         <div class="form-group">
-                            <label>Longitude</label>
+                            <label>Bujur</label>
                             <input wire:model="longitude" type="text"/>
                             @error('longitude')
                             <span class="text-danger">{{ $message }}</span>
@@ -79,7 +79,7 @@
                     </div>
                     <div class="col-lg-3 col-sm-6 col-12">
                         <div class="form-group">
-                            <label>Cash Balance</label>
+                            <label>Saldo Tunai</label>
                             <input wire:model="cashBalance" type="number" class="form-control"/>
                             @error('cashBalance')
                             <span class="text-danger">{{ $message }}</span>
@@ -90,9 +90,9 @@
                         <div class="form-group" >
                             <label>Status</label>
                             <select  wire:model="status" class="form-control">
-                                <option value="" selected>Select</option>
-                                <option value="0" >Closed</option>
-                                <option value="1">Open</option>
+                                <option value="" selected>Pilih</option>
+                                <option value="0" >Tutup</option>
+                                <option value="1">Buka</option>
                             </select>
                             @error('status')
                             <span class="text-danger">{{ $message }}</span>
@@ -100,7 +100,7 @@
                         </div>
                     </div>
                     <div class="col-lg-12">
-                        <label for="">Photo</label>
+                        <label for="">Foto</label>
                         <div class="form-group d-flex flex-column align-items-center">
                             <input wire:model='photo' class="form-control" type="file" accept="image/*"
                                    name=""
@@ -123,11 +123,11 @@
                     </div>
                     <div class="col-lg-12 mt-3">
                         <!-- checking action store or update-->
-                        <button type="submit" class="btn btn-submit me-2">Submit</button>
-                        <a href="javascript:history.back()" class="btn btn-cancel">Cancel</a>
+                        <button type="submit" class="btn btn-submit me-2">Kirim</button>
+                        <a href="javascript:history.back()" class="btn btn-cancel">Batal</a>
                     </div>
                     <div wire:loading class="mt-3">
-                        Saving....
+                        Menyimpan....
                     </div>
 
                 </div>

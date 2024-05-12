@@ -28,6 +28,7 @@ class Index extends Component
             ->latest()
             ->paginate($this->perPage);
         $balanceData = CashBalance::with('outlet')->latest()->paginate(5);
+
         return view('livewire.admin.outlet.index', ['outlets' => $outlets, 'balanceData' => $balanceData]);
     }
 
@@ -48,6 +49,8 @@ class Index extends Component
     public $profit;
     public $customer_count;
     public $order_count;
+
+    public $ordersRecap;
     public function showFinanceOutlet($id)
     {
         $this->reset(['cashBalance','income','expense','profit','customer_count','order_count','photo','name','address','phone','latitude','longitude','status','start_operation','end_operation','financialOutletModal','detailOutletModal']);
@@ -62,6 +65,17 @@ class Index extends Component
                         ->whereMonth('created_at', now()->month)
                         ->whereYear('created_at', now()->year)
                         ->sum('amount');
+        // order recap with data : count order cancelled, order processed, order completed by month
+        $this->ordersRecap = Order::selectRaw('MONTHNAME(created_at) as month,
+                        SUM(CASE WHEN order_status = "completed" THEN 1 ELSE 0 END) as completed,
+                        SUM(CASE WHEN order_status = "processed" THEN 1 ELSE 0 END) as processed,
+                        SUM(CASE WHEN order_status = "cancelled" THEN 1 ELSE 0 END) as cancelled')
+                        ->where('outlet_id', $id)
+                        ->whereYear('created_at', now()->year)
+                        ->groupBy('month')
+                        ->get();
+
+
         $profit = $income - $expense;
         $customer_count = Order::where('outlet_id', $id)->distinct('customer_id')->count('customer_id');
         $order_count = Order::where('outlet_id',$id)->count();

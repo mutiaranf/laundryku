@@ -64,55 +64,47 @@
                 @endif
                 <table class="table ">
                     <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Name</th>
-                        <th>Price</th>
-                        <th>Initial Qty</th>
-                        <th>Current Qty</th>
-                        <th>Total Price</th>
-                        <th>Minimum Qty</th>
-                        <th>Unit</th>
-                        <th>Date</th>
-                        <th>Actions</th>
-                        <th></th>
-                    </tr>
+                        <tr>
+                            <th>#</th>
+                            <th>Nama</th>
+                            <th>Harga</th>
+                            <th>Jumlah Awal</th>
+                            <th>Jumlah Saat Ini</th>
+                            <th>Total Harga</th>
+                            <th>Jumlah Minimum</th>
+                            <th>Unit</th>
+                            <th>Tanggal</th>
+                            <th>Tindakan</th>
+
+                        </tr>
                     </thead>
                     <tbody>
-                    @foreach($stocks as $index => $stock)
-                        <tr>
-                            <td>{{ $stocks->firstItem() + $index }}</td>
-                            <td>{{ $stock->name }}</td>
-                            <td>{{ \Illuminate\Support\Number::currency($stock->price,'IDR')  }}</td>
-                            <td><span class="badge bg-success">{{ round($stock->initial_quantity) }}</span></td>
-                            <td><span
-                                    class="badge {{ $stock->current_quantity <= 0 ? 'bg-danger' : ($stock->current_quantity <= $stock->minimum_quantity ? 'bg-warning' : 'bg-success')}}">{{ round($stock->current_quantity) }}</span>
-                            </td>
-                            <td>{{ \Illuminate\Support\Number::currency($stock->total_price,'IDR')  }}</td>
-                            <td><span class="badge bg-success">{{ round($stock->minimum_quantity) }}</span></td>
-                            <td> {{ $stock->category->unit }}</td>
-                            <td>{{ $stock->created_at->diffForHumans()}} </td>
-                            <td>
-                                <a data-bs-toggle="modal" data-bs-target="#addStockModal"
-                                   wire:click="editS({{ $stock->id }})" class="btn btn-edit"><img
-                                        src="{{ asset('assets/img/icons/edit.svg') }}" alt="img"/></a>
-                                <a wire:click="deleteS({{ $stock->id }})" class="btn btn-delete"><img
-                                        src="{{ asset('assets/img/icons/delete.svg') }}" alt="img"/></a>
-                            </td>
-                            <td>
-                                <div class="d-flex ">
-                                    <input wire:model="stock_number" type="number" class="form-control-sm me-2"
-                                           style="width: 80px !important;">
-                                    <button wire:click="addStock({{$stock->id}})" class="btn btn-sm btn-primary me-2">
-                                        <img src="{{asset('assets/img/material-icon/add.svg')}}" alt="" srcset="">
-                                    </button>
-                                    <button wire:click="reduceStock({{$stock->id}})" class="btn btn-sm btn-danger"><img
-                                            src="{{asset('assets/img/material-icon/min.svg')}}" alt="" srcset="">
-                                    </button>
-                                </div>
-                            </td>
-                        </tr>
-                    @endforeach
+                        @foreach ($stocks as $index => $stock)
+                            <tr>
+                                <td>{{ $stocks->firstItem() + $index }}</td>
+                                <td>{{ $stock->name }}</td>
+                                <td>{{ \Illuminate\Support\Number::currency($stock->price, 'IDR') }}</td>
+                                <td><span class="badge bg-success">{{ round($stock->initial_quantity) }}</span></td>
+                                <td><span
+                                        class="badge {{ $stock->current_quantity <= 0 ? 'bg-danger' : ($stock->current_quantity <= $stock->minimum_quantity ? 'bg-warning' : 'bg-success') }}">{{ round($stock->current_quantity) }}</span>
+                                </td>
+                                <td>{{ \Illuminate\Support\Number::currency($stock->total_price, 'IDR') }}</td>
+                                <td><span class="badge bg-success">{{ round($stock->minimum_quantity) }}</span></td>
+                                <td> {{ $stock->category->unit }}</td>
+                                <td>{{ $stock->created_at->diffForHumans() }} </td>
+                                <td>
+                                    <a data-bs-toggle="modal" data-bs-target="#addStockModal"
+                                        wire:click="editS({{ $stock->id }})" class="btn btn-edit"><img
+                                            src="{{ asset('assets/img/icons/edit.svg') }}" alt="img" /></a>
+                                    <a wire:click="deleteS({{ $stock->id }})" class="btn btn-delete"><img
+                                            src="{{ asset('assets/img/icons/delete.svg') }}" alt="img" /></a>
+                                    <a wire:click="stock_id({{ $stock->id }})" data-bs-toggle="modal" data-bs-target="#addQtykModal"
+                                       class="btn btn-edit"><img
+                                            src="{{ asset('assets/img/icons/eye.svg') }}" alt="img" /></a>
+                                </td>
+
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
                 <div class="d-flex mt-3">
@@ -318,6 +310,40 @@
 
                             </div>
                         </form>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+            {{-- Modal Add qty stock --}}
+        <!-- Modal -->
+        <div wire:ignore.self class="modal  fade" id="addQtykModal" tabindex="-1"
+            aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-sm modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Add / Reduce Stock</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <input wire:model="stock_number" type="number" class="form-control-sm me-2"
+                                    style="width: 80px !important;">
+                                <button data-bs-dismiss="modal" wire:click="addStock({{ $stockId }})"
+                                    class="btn btn-sm btn-primary me-2">
+                                    <img src="{{ asset('assets/img/material-icon/add.svg') }}" alt=""
+                                        srcset="">
+                                </button>
+                                <button data-bs-dismiss="modal" wire:click="reduceStock({{ $stockId }})"
+                                    class="btn btn-sm btn-danger"><img
+                                        src="{{ asset('assets/img/material-icon/min.svg') }}" alt=""
+                                        srcset="">
+                                </button>
+                            </div>
+                        </div>
 
                     </div>
                 </div>

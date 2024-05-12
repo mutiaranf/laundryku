@@ -11,14 +11,14 @@
 <div class="content">
     <div class="page-header">
         <div class="page-title">
-            <h4>Employee List</h4>
-            <h6>Manage Employee</h6>
+            <h4>Daftar Karyawan</h4>
+            <h6>Kelola Karyawan</h6>
         </div>
         <div class="page-btn">
             <a href="{{route('employee.create')}}" class="btn btn-added" wire:navigate><img
                     src="{{ asset('assets/img/icons/plus.svg') }} "
-                    alt="img"/>Add
-                Employee</a>
+                    alt="img"/>Tambah
+                Karyawan</a>
         </div>
     </div>
 
@@ -33,7 +33,7 @@
                         </a>
                     </div>
                     <div class="search-input me-2">
-                        <input wire:model.live.debounce="search" type="text" placeholder="Search" class="form-control"/>
+                        <input wire:model.live.debounce="search" type="text" placeholder="Cari" class="form-control"/>
                     </div>
                     <!-- per page -->
                     <div class="per-page me-2">
@@ -75,19 +75,19 @@
                         <div class="col-lg-2 col-sm-6 col-12">
                             <div class="form-group">
                                 <input wire:model.live.debounce="emailSearch" type="text"
-                                       placeholder="Enter Email"/>
+                                       placeholder="Masukkan Email"/>
                             </div>
                         </div>
                         <div class="col-lg-2 col-sm-6 col-12">
                             <div class="form-group">
                                 <input wire:model.live.debounce="phoneSearch" type="text"
-                                       placeholder="Enter Phone"/>
+                                       placeholder="Masukkan Nomor Telepon"/>
                             </div>
                         </div>
                         <div class="col-lg-2 col-sm-6 col-12">
                             <div class="form-group">
                                 <select wire:model.live.debounce="outletSearch" class="form-select">
-                                    <option>Choose Outlet</option>
+                                    <option>Pilih Outlet</option>
                                     @foreach($outlets as $outlet)
                                         <option value="{{ $outlet->id }}">{{ $outlet->name }}</option>
                                     @endforeach
@@ -97,7 +97,7 @@
                         <div class="col-lg-2 col-sm-6 col-12">
                             <div class="form-group">
                                 <select wire:model.live.debounce="positionSearch" class="form-select">
-                                    <option>Choose Position</option>
+                                    <option>Pilih Posisi</option>
                                     @foreach($positions as $position)
                                         <option value="{{ $position->id }}">{{ $position->name }}</option>
                                     @endforeach
@@ -124,16 +124,16 @@
                     <thead>
                     <tr>
                         <th>No</th>
-                        <th>Photo</th>
-                        <th>Name</th>
-                        <th>Phone</th>
+                        <th>Foto</th>
+                        <th>Nama</th>
+                        <th>Nomor Telepon</th>
                         <th>Email</th>
-                        <th>Gender</th>
-                        <th>Date of Birth</th>
+                        <th>Jenis Kelamin</th>
+                        <th>Tanggal Lahir</th>
                         <th>Outlet</th>
-                        <th>Position</th>
+                        <th>Posisi</th>
                         <th>Status</th>
-                        <th>Action</th>
+                        <th>Tindakan</th>
 
                     </tr>
                     </thead>
@@ -154,13 +154,13 @@
                             <td>{{ $employee->position->name }}</td>
                             <td>
                                 @if($employee->status == 1)
-                                    <span class="badge bg-success">active</span>
+                                    <span class="badge bg-success">aktif</span>
                                 @else
-                                    <span class="badge bg-danger">inactive</span>
+                                    <span class="badge bg-danger">tidak aktif</span>
                                 @endif
                             </td>
                             <td>
-                                <a class="me-2" href="">
+                                <a href={{ route('employee.edit', $employee->id) }} class="me-2" href="">
                                     <img src="{{asset('assets/img/icons/edit.svg')}}" alt="img"/>
                                 </a>
                                 <a wire:click="delete({{$employee->id}})" class="me-2 confirm-text">
@@ -170,7 +170,6 @@
                                    data-bs-target="#showOutletModal">
                                     <img src="{{asset('assets/img/icons/eye.svg')}}" alt="img"/>
                                 </a>
-
                             </td>
                         </tr>
 
@@ -193,7 +192,7 @@
             <div class="modal-dialog modal-xl">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Detail Employee</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Detail Karyawan</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -202,7 +201,7 @@
                             <table class="table mb-0">
                                 <tbody>
                                 <tr>
-                                    <td style="font-weight: bold !important; color: black !important;">Name</td>
+                                    <td style="font-weight: bold !important; color: black !important;">Nama</td>
                                     <td>{{$name}}</td>
                                 </tr>
                                 <tr>
@@ -210,29 +209,29 @@
                                     <td>{{$email}}</td>
                                 </tr>
                                 <tr>
-                                    <td style="font-weight: bold !important; color: black !important;">Phone</td>
+                                    <td style="font-weight: bold !important; color: black !important;">Nomor Telepon</td>
                                     <td>{{$phone}}</td>
                                 </tr>
                                 <tr>
-                                    <td style="font-weight: bold !important; color: black !important;">Gender</td>
+                                    <td style="font-weight: bold !important; color: black !important;">Jenis Kelamin</td>
                                     <td>{{$gender}}</td>
                                 </tr>
                                 <tr>
-                                    <td style="font-weight: bold !important; color: black !important;">Date of Birth
+                                    <td style="font-weight: bold !important; color: black !important;">Tanggal Lahir
                                     </td>
                                     <td>{{$dob}}</td>
                                 </tr>
                                 <tr>
-                                    <td style="font-weight: bold !important; color: black !important;">Account Number
+                                    <td style="font-weight: bold !important; color: black !important;">Nomor Rekening
                                     </td>
                                     <td>{{$account_number}}</td>
                                 </tr>
                                 <tr>
-                                    <td style="font-weight: bold !important; color: black !important;">Address</td>
+                                    <td style="font-weight: bold !important; color: black !important;">Alamat</td>
                                     <td>{{$address}}</td>
                                 </tr>
                                 <tr>
-                                    <td style="font-weight: bold !important; color: black !important;">Salary</td>
+                                    <td style="font-weight: bold !important; color: black !important;">Gaji</td>
                                     <td>{{$salary}}</td>
                                 </tr>
                                 <tr>
@@ -240,7 +239,7 @@
                                     <td>{{$outlet_name}}</td>
                                 </tr>
                                 <tr>
-                                    <td style="font-weight: bold !important; color: black !important;">Position</td>
+                                    <td style="font-weight: bold !important; color: black !important;">Posisi</td>
                                     <td>{{$position_name}}</td>
                                 </tr>
                                 </tbody>
@@ -273,7 +272,7 @@
 
             // create alert
             function yourLoggedin() {
-                toastr.warning('Your Logged in!');
+                toastr.warning('Anda Telah Masuk!');
             }
 
             // hide alrt after 2 seconds

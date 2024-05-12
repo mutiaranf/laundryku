@@ -4,8 +4,8 @@
 <div class="content">
     <div class="page-header">
         <div class="page-title">
-            <h4>Customer Management</h4>
-            <h6>Add/Update Customer</h6>
+            <h4>Manajemen Pelanggan</h4>
+            <h6>Tambah/Perbarui Pelanggan</h6>
         </div>
     </div>
 
@@ -15,7 +15,7 @@
                 <div class="row">
                     <div class="col-lg-3 col-sm-6 col-12">
                         <div class="form-group">
-                            <label>Customer Name</label>
+                            <label>Nama Pelanggan</label>
                             <input wire:model="name" type="text"/>
                             @error('name')
                             <span class="text-danger">{{ $message }}</span>
@@ -25,7 +25,7 @@
 
                     <div class="col-lg-3 col-sm-6 col-12">
                         <div class="form-group">
-                            <label>Phone</label>
+                            <label>Nomor Telepon</label>
                             <input wire:model="phone" type="text"/>
                             @error('phone')
                             <span class="text-danger">{{ $message }}</span>
@@ -34,7 +34,7 @@
                     </div>
                     <div class="col-lg-3 col-sm-6 col-12">
                         <div class="form-group">
-                            <label>latitude</label>
+                            <label>Latitude</label>
                             <input wire:model="latitude" type="text"/>
                             @error('latitude')
                             <span class="text-danger">{{ $message }}</span>
@@ -43,7 +43,7 @@
                     </div>
                     <div class="col-lg-3 col-sm-6 col-12">
                         <div class="form-group">
-                            <label>longitude</label>
+                            <label>Longitude</label>
                             <input wire:model="longitude" type="text"/>
                             @error('longitude')
                             <span class="text-danger">{{ $message }}</span>
@@ -53,7 +53,7 @@
 
                     <div class="col-lg-6 col-12">
                         <div class="form-group">
-                            <label>Address</label>
+                            <label>Alamat</label>
                             <input wire:model="address" type="text"/>
 
                         </div>
@@ -61,10 +61,10 @@
 
                     <div class="col-lg-12">
                         <button type="submit" class="btn btn-submit me-2"
-                        >Submit</button
+                        >Kirim</button
                         >
                         <a href="javascript:history.back();" class="btn btn-cancel"
-                        >Cancel</a
+                        >Batal</a
                         >
                     </div>
                 </div>

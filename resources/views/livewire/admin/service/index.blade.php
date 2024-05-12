@@ -11,14 +11,14 @@
 <div class="content">
     <div class="page-header">
         <div class="page-title">
-            <h4>Service Type</h4>
-            <h6>Manage Service Type</h6>
+            <h4>Jenis Layanan</h4>
+            <h6>Kelola Jenis Layanan</h6>
         </div>
         <div class="page-btn">
             <a data-bs-toggle="modal" data-bs-target="#addServiceTypeModal" class="btn btn-added"><img
                     src="{{ asset('assets/img/icons/plus.svg') }} "
-                    alt="img"/>Add
-                Service Type</a>
+                    alt="img"/>Tambah
+                Jenis Layanan</a>
         </div>
     </div>
 
@@ -28,10 +28,10 @@
                 <div class="search-set">
 
                     <div class="search-input me-2">
-                        <input wire:model.live.debounce="searchST" type="text" placeholder="Search"
+                        <input wire:model.live.debounce="searchST" type="text" placeholder="Cari"
                                class="form-control"/>
                     </div>
-                    <!-- per page -->
+                    <!-- per halaman -->
                     <div class="per-page me-2">
                         <select wire:model.live.debounce="perPageST" class="form-select">
                             <option checked>5</option>
@@ -62,12 +62,12 @@
                     <tr>
                         <th>No</th>
                         <th>Icon</th>
-                        <th>Name</th>
-                        <th>Estimated Time</th>
-                        <th>Price</th>
+                        <th>Nama</th>
+                        <th>Waktu Estimasi</th>
+                        <th>Harga</th>
                         <th>Unit</th>
-                        <th>Description</th>
-                        <th>Actions</th>
+                        <th>Deskripsi</th>
+                        <th>Tindakan</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -114,7 +114,7 @@
                     <div class="col-lg-6">
                         <div class="form-group
                                 ">
-                            <label>Name</label>
+                            <label>Nama</label>
                             <input wire:model='nameSP' type="text" class="form-control">
                             @error('nameSP')
                             <span class="text-danger">{{ $message }}</span>
@@ -124,7 +124,7 @@
                     <div class="col-lg-6">
                         <div class="form-group
                                 ">
-                            <label>Price</label>
+                            <label>Harga</label>
                             <input wire:model='priceSP' type="number" class="form-control">
                             @error('priceSP')
                             <span class="text-danger">{{ $message }}</span>
@@ -134,7 +134,7 @@
                     <div class="col-lg-6">
                         <div class="form-group
                                 ">
-                            <label>Estimated Time (In Hours)</label>
+                            <label>Waktu Estimasi (Dalam Jam)</label>
                             <input wire:model='estimated_timeSP' type="number" class="form-control">
                             @error('estimated_timeSP')
                             <span class="text-danger">{{ $message }}</span>
@@ -144,9 +144,9 @@
                     <div class="col-lg-6">
                         <div class="form-group
                                 ">
-                            <label>Service Type</label>
+                            <label>Jenis Layanan</label>
                             <select wire:model="service_types_id" id="" class="form-control">
-                                <option value="">Select Service Type</option>
+                                <option value="">Pilih Jenis Layanan</option>
                                 @foreach($serviceTypes as $serviceType)
                                     <option value="{{ $serviceType->id }}">{{ $serviceType->name }}</option>
                                 @endforeach
@@ -160,7 +160,7 @@
                     <div class="col-lg-10">
                         <div class="form-group
                                 ">
-                            <label>Photo</label>
+                            <label>Foto</label>
                             <input wire:model='photoSP' type="file" class="form-control">
                             @error('photoSP')
                             <span class="text-danger">{{ $message }}</span>
@@ -178,7 +178,7 @@
                     <div class="col-lg-12">
                         <div class="form-group
                                 ">
-                            <label>Description</label>
+                            <label>Deskripsi</label>
                             <textarea wire:model='descriptionSP' class="form-control"></textarea>
                             @error('descriptionSP')
                             <span class="text-danger">{{ $message }}</span>
@@ -187,14 +187,14 @@
                     </div>
 
                     <div class="col-lg-12 mt-3">
-                        <!-- checking action store or update -->
+                        <!-- memeriksa tindakan simpan atau perbarui -->
                         @if($edit_modeSP)
-                            <button wire:click="updateSP({{$idSP}})" class="btn btn-submit me-2">Update</button>
+                            <button wire:click="updateSP({{$idSP}})" class="btn btn-submit me-2">Perbarui</button>
                         @else
 
-                            <button type="submit" class="btn btn-submit me-2">Submit</button>
+                            <button type="submit" class="btn btn-submit me-2">Kirim</button>
                         @endif
-                        <a wire:click="closeFormSP" class="btn btn-cancel">Cancel</a>
+                        <a wire:click="closeFormSP" class="btn btn-cancel">Batal</a>
                     </div>
 
 
@@ -204,15 +204,15 @@
     @endif
     <div class="page-header">
         <div class="page-title">
-            <h4>Service Package List</h4>
-            <h6>Manage Service Package</h6>
+            <h4>Daftar Paket Layanan</h4>
+            <h6>Kelola Paket Layanan</h6>
         </div>
         @if(!$show_formSP)
             <div class="page-btn">
                 <a wire:click="showFormSP" class="btn btn-added"><img
                         src="{{ asset('assets/img/icons/plus.svg') }} "
-                        alt="img"/>Add
-                    Service Package</a>
+                        alt="img"/>Tambah
+                    Paket Layanan</a>
             </div>
         @endif
     </div>
@@ -224,9 +224,9 @@
                 <div class="search-set">
 
                     <div class="search-input me-2">
-                        <input wire:model.live.debounce="search" type="text" placeholder="Search" class="form-control"/>
+                        <input wire:model.live.debounce="search" type="text" placeholder="Cari" class="form-control"/>
                     </div>
-                    <!-- per page -->
+                    <!-- per halaman -->
                     <div class="per-page me-2">
                         <select wire:model.live.debounce="perPage" class="form-select">
                             <option checked>5</option>
@@ -256,13 +256,13 @@
                     <thead>
                     <tr>
                         <th>No</th>
-                        <th>Photo</th>
-                        <th>Name</th>
-                        <th>Price</th>
-                        <th>Estimated Time</th>
-                        <th>Service Type</th>
-                        <th>Description</th>
-                        <th>Actions</th>
+                        <th>Foto</th>
+                        <th>Nama</th>
+                        <th>Harga</th>
+                        <th>Waktu Estimasi</th>
+                        <th>Jenis Layanan</th>
+                        <th>Deskripsi</th>
+                        <th>Tindakan</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -300,14 +300,14 @@
 
             </div>
         </div>
-        <!-- Modal Service Type-->
+        <!-- Modal Jenis Layanan-->
         <div wire:ignore.self class="modal fade" id="addServiceTypeModal" tabindex="-1"
              aria-labelledby="exampleModalLabel"
              aria-hidden="true">
             <div class="modal-dialog modal-xl">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Add Service Type</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Tambah Jenis Layanan</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -316,7 +316,7 @@
                                 <div class="col-lg-6">
                                     <div class="form-group
                                 ">
-                                        <label>Name</label>
+                                        <label>Nama</label>
                                         <input wire:model='nameST' type="text" class="form-control">
                                         @error('nameST')
                                         <span class="text-danger">{{ $message }}</span>
@@ -326,7 +326,7 @@
                                 <div class="col-lg-6">
                                     <div class="form-group
                                 ">
-                                        <label>Price</label>
+                                        <label>Harga</label>
                                         <input wire:model='priceST' type="number" class="form-control">
                                         @error('priceST')
                                         <span class="text-danger">{{ $message }}</span>
@@ -346,7 +346,7 @@
                                 <div class="col-lg-6">
                                     <div class="form-group
                                 ">
-                                        <label>Estimated Time (In Hours)</label>
+                                        <label>Waktu Estimasi (Dalam Jam)</label>
                                         <input wire:model='estimated_timeST' type="number" class="form-control">
                                         @error('estimated_timeST')
                                         <span class="text-danger">{{ $message }}</span>
@@ -376,7 +376,7 @@
                                 <div class="col-lg-12">
                                     <div class="form-group
                                 ">
-                                        <label>Description</label>
+                                        <label>Deskripsi</label>
                                         <textarea wire:model='descriptionST' class="form-control"></textarea>
                                         @error('descriptionST')
                                         <span class="text-danger">{{ $message }}</span>
@@ -385,16 +385,16 @@
                                 </div>
 
                                 <div class="col-lg-12 mt-3">
-                                    <!-- checking action store or update -->
+                                    <!-- memeriksa tindakan simpan atau perbarui -->
                                     @if($edit_modeST)
-                                        <button wire:click="updateST({{$idST}})" class="btn btn-submit me-2">Update
+                                        <button wire:click="updateST({{$idST}})" class="btn btn-submit me-2">Perbarui
                                         </button>
                                     @else
 
-                                        <button type="submit" class="btn btn-submit me-2">Submit</button>
+                                        <button type="submit" class="btn btn-submit me-2">Kirim</button>
                                     @endif
                                     <a data-bs-dismiss="modal" wire:click="resetFormST"
-                                       class="btn btn-cancel">Cancel</a>
+                                       class="btn btn-cancel">Batal</a>
                                 </div>
 
 
@@ -428,16 +428,16 @@
 
             // create alert
             function yourLoggedin() {
-                toastr.warning('Your Logged in!');
+                toastr.warning('Anda Telah Masuk!');
             }
 
-            // hide alrt after 2 seconds
+            // sembunyikan alert setelah 2 detik
             setTimeout(function () {
                 $('.alert').fadeOut('fast');
             }, 3000);
 
             window.addEventListener('success', event => {
-                console.log("Modal hide code executed");
+                console.log("Kode sembunyikan modal dijalankan");
                 $('.modal').modal('hide');
             });
 

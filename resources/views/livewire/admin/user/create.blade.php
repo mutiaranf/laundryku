@@ -4,8 +4,8 @@
 <div class="content">
     <div class="page-header">
         <div class="page-title">
-            <h4>User Management</h4>
-            <h6>Add/Update User</h6>
+            <h4>Pengelolaan Pengguna</h4>
+            <h6>Tambah/Perbarui Pengguna</h6>
         </div>
     </div>
 
@@ -15,7 +15,7 @@
                 <div class="row">
                     <div class="col-lg-3 col-sm-6 col-12">
                         <div class="form-group">
-                            <label>User Name</label>
+                            <label>Nama Pengguna</label>
                             <input wire:model='name' type="text" required/>
                             @error('name')
                             <span class="text-danger">{{ $message }}</span>
@@ -29,7 +29,7 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label>Password</label>
+                            <label>Kata Sandi</label>
                             <div class="pass-group">
                                 <input wire:model='password' type="password" class="pass-input" required/>
                                 <span class="fas toggle-password fa-eye-slash"></span>
@@ -41,16 +41,16 @@
                     </div>
                     <div class="col-lg-3 col-sm-6 col-12">
                         <div class="form-group">
-                            <label>Phone</label>
+                            <label>Telepon</label>
                             <input wire:model='phone' type="text" required/>
                             @error('phone')
                             <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
                         <div wire:ignore class="form-group">
-                            <label>Role</label>
+                            <label>Peran</label>
                             <select wire:model='user_role' class="select" required>
-                                <option value="" selected>Select</option>
+                                <option value="" selected>Pilih</option>
                                 @foreach ($roles as $key => $role)
                                     <option value="{{ $role->name }}">{{ $role->name }}</option>
                                 @endforeach
@@ -60,7 +60,7 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label>Confirm Password</label>
+                            <label>Konfirmasi Kata Sandi</label>
                             <div class="pass-group">
                                 <input wire:model='password_confirmation' type="password" class="pass-inputs" required/>
                                 <span class="fas toggle-passworda fa-eye-slash"></span>
@@ -72,7 +72,7 @@
                     </div>
 
                     <div class=" col-sm-6 col-12">
-                        <label for="">Photo</label>
+                        <label for="">Foto</label>
                         <div class="form-group d-flex flex-column align-items-center">
                             <input wire:model='profile_photo_path' class="form-control" type="file" accept="image/*"  name=""
                                    id="">
@@ -92,12 +92,12 @@
 
                     </div>
                     <div class="col-lg-12">
-                        <!-- checking action store or update-->
-                        <button type="submit"  class="btn btn-submit me-2">Submit</button>
-                        <a href="javascript:history.back()" class="btn btn-cancel">Cancel</a>
+                        <!-- memeriksa tindakan simpan atau perbarui-->
+                        <button type="submit"  class="btn btn-submit me-2">Kirim</button>
+                        <a href="javascript:history.back()" class="btn btn-cancel">Batal</a>
                     </div>
                     <div wire:loading class="mt-3">
-                        Saving....
+                        Menyimpan....
                     </div>
                 </div>
             </form>

@@ -88,5 +88,23 @@ class Index extends Component
         $this->status = $employee->status;
     }
 
+    public function edit($id)
+    {
+        $employee = Employee::with('outlet','position')->find($id);
+        $this->outlet_name = $employee->outlet->name;
+        $this->position_name = $employee->position->name;
+        $this->name = $employee->name;
+        $this->email = $employee->email;
+        $this->phone = $employee->phone;
+        $this->gender = $employee->gender;
+        $this->dob = $employee->dob;
+        $this->account_number = $employee->account_number;
+        $this->address = $employee->address;
+        $this->salary = $employee->salary;
+        $this->photo = $employee->photo;
+        $this->status = $employee->status;
+
+    }
+
 
 }

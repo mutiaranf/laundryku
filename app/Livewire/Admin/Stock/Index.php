@@ -167,7 +167,10 @@ class Index extends Component
         $this->reset();
     }
 
-
+    public $stockId;
+    public function stock_id($id){
+        return $this->stockId = $id;
+    }
     public $stock_number;
 
     public function addStock($id)

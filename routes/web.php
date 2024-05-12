@@ -52,6 +52,7 @@ Route::middleware([
     // route for supervisor
     Route::middleware(['role:supervisor'])->group(function () {
         Route::get('/quick-order', \App\Livewire\Supervisor\QuickOrder::class)->name('quick-order');
+        Route::get('/order-list', \App\Livewire\Supervisor\OrderList::class)->name('order-list');
         Route::get('/order-queue', \App\Livewire\Supervisor\OrderQueue::class)->name('order-queue');
         Route::get('/expense', \App\Livewire\Supervisor\Expense\Index::class)->name('expense');
         Route::get('/stockOutlet', \App\Livewire\Supervisor\Stock\Index::class)->name('stockOutlet');
