@@ -2,10 +2,12 @@
 
 namespace App\Livewire\Admin\Employee;
 
-use App\Models\Employee;
 use App\Models\Outlet;
-use App\Models\Position;
 use Livewire\Component;
+use App\Models\Employee;
+use App\Models\Position;
+use App\Exports\EmployeeExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class Index extends Component
 {
@@ -86,6 +88,11 @@ class Index extends Component
         $this->salary = $employee->salary;
         $this->photo = $employee->photo;
         $this->status = $employee->status;
+    }
+
+    public function export()
+    {
+        return Excel::download(new EmployeeExport,'employee.xlsx');
     }
 
     public function edit($id)

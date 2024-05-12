@@ -2,8 +2,10 @@
 
 namespace App\Livewire\Admin\Position;
 
-use Livewire\Attributes\Validate;
 use Livewire\Component;
+use App\Exports\PositionExport;
+use Livewire\Attributes\Validate;
+use Maatwebsite\Excel\Facades\Excel;
 
 class Index extends Component
 {
@@ -40,6 +42,11 @@ class Index extends Component
         $this->dispatch('success',[
             'message' => 'User Created Successfully.'
         ]);
+    }
+
+    public function export()
+    {
+        return Excel::download(new PositionExport,'position.xlsx');
     }
 
     public $edit_mode;

@@ -3,6 +3,10 @@
 namespace App\Livewire\Admin\Customer;
 
 use Livewire\Component;
+use App\Models\Customer;
+use App\Exports\UsersExport;
+use App\Exports\CustomersExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class Index extends Component
 {
@@ -29,6 +33,11 @@ class Index extends Component
     public function resetFilter()
     {
         $this->reset(['search', 'phoneSearch', 'addressSearch']);
+    }
+
+    public function export()
+    {
+        return Excel::download(new CustomersExport,'customers.xlsx');
     }
 
     public function delete($id)

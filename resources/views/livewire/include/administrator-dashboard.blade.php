@@ -1,57 +1,5 @@
 <div class="content">
-    <div class="row">
-        <div class="col-12">
-            <div class="card">
-                <div class="card-body">
-                    <h4 class=" mb-3" style="font-weight: 600">Pesanan bulan ini</h4>
-                    <div class="table-responsive">
-                        <table class="table mt-3">
-                            <thead>
-                            <tr>
-                                <th>No</th>
-                                <th>Order ID</th>
-                                <th>Customer</th>
-                                <th>Estimated Time</th>
-                                <th>Order Status</th>
-                                <th>Price</th>
-                                <th>Action</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            @foreach ($orders as $item => $order)
-                                <tr>
-                                    <td>{{ $orders->firstItem() + $item }}</td>
-                                    <td>{{ $order->id }}</td>
-                                    <td>{{ $order->customer->name }}</td>
-                                    <td>{{ $order->estimated_completion_time }}</td>
-                                    <td> <span
-                                            class="badge @if ($order->order_status == 'New') bg-primary @elseif ($order->order_status == 'Processed') bg-warning @elseif ($order->order_status == 'Completed') bg-success @else bg-danger @endif">{{ $order->order_status }}</span>
-                                    </td>
-                                    <td>Rp.{{ number_format($order->getTotalPriceAttribute(), 0, ',', '.') }},-</td>
-                                    <td>
-                                        <a wire:click="show({{ $order->id }})" class="me-2 confirm-text"
-                                           data-bs-toggle="modal" data-bs-target="#showOrderModal">
-                                            <img src="{{ asset('assets/img/icons/eye.svg') }}" alt="img"/>
-                                        </a>
-                                        <a wire:click="changeStatus({{ $order->id }}, 'Cancelled')"
-                                           class="me-2 confirm-text">
-                                            <img src="{{ asset('assets/img/icons/delete.svg') }}" alt="img"/>
-                                        </a>
-                                    </td>
-                                </tr>
-                            @endforeach
-                            </tbody>
-                        </table>
-                        <div class="d-flex mt-3">
-                            <div class="me-auto">
-                                {{$orders->links()}}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+
     <div class="row">
         <div class="col-lg-3 col-sm-6 col-12">
             <div class="dash-widget">
@@ -158,39 +106,9 @@
     <div class="row">
         <div class="col-lg-7 col-sm-12 col-12 d-flex">
             <div class="card flex-fill">
-                <div class="card-header pb-0 d-flex justify-content-between align-items-center">
-                    <h5 class="card-title mb-0">Recently Completed Order</h5>
-                    <div class="graph-sets">
-                        <ul>
-                            <li>
-                                <span>Sales</span>
-                            </li>
-                            <li>
-                                <span>Purchase</span>
-                            </li>
-                        </ul>
-                        <div class="dropdown">
-                            <button class="btn btn-white btn-sm dropdown-toggle" type="button" id="dropdownMenuButton"
-                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                2022
-                                <img src="assets/img/icons/dropdown.svg" alt="img" class="ms-2"/>
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <li>
-                                    <a href="javascript:void(0);" class="dropdown-item">2022</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0);" class="dropdown-item">2021</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0);" class="dropdown-item">2020</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+
                 <div class="card-body">
-                    <div id="sales_charts"></div>
+                    <div id="chart-admin"></div>
                 </div>
             </div>
         </div>
@@ -235,6 +153,59 @@
                             @endforeach
                             </tbody>
                         </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class=" mb-3" style="font-weight: 600">Pesanan bulan ini</h4>
+                    <div class="table-responsive">
+                        <table class="table mt-3">
+                            <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Order ID</th>
+                                <th>Customer</th>
+                                <th>Estimated Time</th>
+                                <th>Order Status</th>
+                                <th>Price</th>
+                                <th>Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            @foreach ($orders as $item => $order)
+                                <tr>
+                                    <td>{{ $orders->firstItem() + $item }}</td>
+                                    <td>{{ $order->id }}</td>
+                                    <td>{{ $order->customer->name }}</td>
+                                    <td>{{ $order->estimated_completion_time }}</td>
+                                    <td> <span
+                                            class="badge @if ($order->order_status == 'New') bg-primary @elseif ($order->order_status == 'Processed') bg-warning @elseif ($order->order_status == 'Completed') bg-success @else bg-danger @endif">{{ $order->order_status }}</span>
+                                    </td>
+                                    <td>Rp.{{ number_format($order->getTotalPriceAttribute(), 0, ',', '.') }},-</td>
+                                    <td>
+                                        <a wire:click="show({{ $order->id }})" class="me-2 confirm-text"
+                                           data-bs-toggle="modal" data-bs-target="#showOrderModal">
+                                            <img src="{{ asset('assets/img/icons/eye.svg') }}" alt="img"/>
+                                        </a>
+                                        <a wire:click="changeStatus({{ $order->id }}, 'Cancelled')"
+                                           class="me-2 confirm-text">
+                                            <img src="{{ asset('assets/img/icons/delete.svg') }}" alt="img"/>
+                                        </a>
+                                    </td>
+                                </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
+                        <div class="d-flex mt-3">
+                            <div class="me-auto">
+                                {{$orders->links()}}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

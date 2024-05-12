@@ -3,9 +3,12 @@
 namespace App\Livewire\Admin\User;
 
 use App\Models\User;
-use Livewire\Attributes\Title;
 use Livewire\Component;
+use App\Exports\UsersExport;
 use Livewire\WithPagination;
+use Livewire\Attributes\Title;
+use Maatwebsite\Excel\Facades\Excel;
+
 #[Title('User Management')]
 class Index extends Component
 {
@@ -41,10 +44,15 @@ class Index extends Component
 
         return view('livewire.admin.user.index', ['users' => $users, 'roles' => $roles]);
     }
+
+    public function export()
+    {
+        return Excel::download(new UsersExport,'user.xlsx');
+    }
     //    reset filter
     public function resetFilter()
     {
-        $this->reset(['search','nameSearch', 'emailSearch', 'phoneSearch', 'roleSearch']);
+        $this->reset(['search', 'nameSearch', 'emailSearch', 'phoneSearch', 'roleSearch']);
         $this->resetPage();
 
     }
@@ -53,11 +61,11 @@ class Index extends Component
     public function delete($id)
     {
         $user = User::find($id);
-        if($user->profile_photo_path){
-            unlink('storage/'.$user->profile_photo_path);
+        if ($user->profile_photo_path) {
+            unlink('storage/' . $user->profile_photo_path);
         }
         $user->delete();
-        $this->dispatch('success',[
+        $this->dispatch('success', [
             'message' => 'User Deleted Successfully.'
         ]);
     }
@@ -67,12 +75,12 @@ class Index extends Component
         $user->status = !$user->status;
         $user->save();
         if ($user->status) {
-            $this->dispatch('success',[
-                'message' => 'User ' .$user->name.' Activated Successfully.'
+            $this->dispatch('success', [
+                'message' => 'User ' . $user->name . ' Activated Successfully.'
             ]);
         } else {
-            $this->dispatch('success',[
-                'message' => 'User ' .$user->name.' Deactivated Successfully.'
+            $this->dispatch('success', [
+                'message' => 'User ' . $user->name . ' Deactivated Successfully.'
             ]);
         }
     }

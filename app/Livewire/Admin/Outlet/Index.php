@@ -9,7 +9,9 @@ use App\Models\Expense;
 use Livewire\Component;
 use App\Models\CashBalance;
 use Livewire\WithPagination;
-use Livewire\Attributes\Validate;
+use App\Exports\OutletsExport;
+
+use Maatwebsite\Excel\Facades\Excel;
 
 class Index extends Component
 {
@@ -92,6 +94,11 @@ class Index extends Component
         $this->reset(['search','addressSearch']);
         $this->resetPage();
 
+    }
+
+    public function export()
+    {
+        return Excel::download(new OutletsExport,'outlet.xlsx');
     }
     public $photo;
     public $name;
