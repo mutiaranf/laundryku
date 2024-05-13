@@ -13,10 +13,20 @@ use App\Models\ServicePackage;
 
 class OrderQueue extends Component
 {
+
+
+    public $outlet_id;
+    public function __construct()
+    {
+        $this->outlet_id = Employee::find(auth()->user()->employee_id)->outlet_id;
+    }
+
+
     use WithPagination;
     public function render()
     {
         $orders = Order::with('detailOrder', 'customer')
+            ->where('outlet_id', $this->outlet_id)
             ->whereMonth('created_at', now()->month)
             ->orderByRaw("FIELD(order_status, 'Completed', 'Cancelled') ASC")
             ->paginate(5);
