@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use App\Models\Order;
 use App\Models\Income;
 use Livewire\Component;
+use App\Models\Employee;
 use App\Models\CashBalance;
 use App\Models\ServiceType;
 use Livewire\WithPagination;

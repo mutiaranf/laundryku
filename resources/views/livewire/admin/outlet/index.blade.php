@@ -335,44 +335,44 @@
                                     </div>
                                 </div>
                             </div>
-                        @endif
-                        <div class="table-responsive">
+                            <div class="table-responsive">
 
-                            <table class="table ">
-                                <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Bulan</th>
-                                        <th>Completed</th>
-                                        <th>Processed</th>
-                                        <th>Cancelled</th>
+                                <table class="table ">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Bulan</th>
+                                            <th>Completed</th>
+                                            <th>Processed</th>
+                                            <th>Cancelled</th>
 
 
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @if ($ordersRecap != null)
-                                        @foreach ($ordersRecap as $index => $data)
-                                            <tr>
-                                                <td>{{ $index + 1 }}</td>
-                                                <td>{{ $data->month }}</td>
-                                                <td>{{ $data->completed }}</td>
-                                                <td>{{ $data->processed }}</td>
-                                                <td>{{ $data->cancelled }}</td>
-                                            </tr>
-                                        @endforeach
-                                    @endif
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @if ($ordersRecap != null)
+                                            @foreach ($ordersRecap as $index => $data)
+                                                <tr>
+                                                    <td>{{ $index + 1 }}</td>
+                                                    <td>{{ $data->month }}</td>
+                                                    <td>{{ $data->completed }}</td>
+                                                    <td>{{ $data->processed }}</td>
+                                                    <td>{{ $data->cancelled }}</td>
+                                                </tr>
+                                            @endforeach
+                                        @endif
 
-                                </tbody>
-                            </table>
-                            <div class="d-flex mt-3">
-                                <div class="me-auto">
-                                    {{ $outlets->links() }}
+                                    </tbody>
+                                </table>
+                                <div class="d-flex mt-3">
+                                    <div class="me-auto">
+                                        {{ $outlets->links() }}
+                                    </div>
                                 </div>
+
+
                             </div>
-
-
-                        </div>
+                        @endif
 
 
 
