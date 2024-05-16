@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Order;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -47,6 +49,43 @@ Route::middleware([
         Route::get('/service', \App\Livewire\Admin\Service\Index::class)->name('service');
         // Stock
         Route::get('/stock', \App\Livewire\Admin\Stock\Index::class)->name('stock');
+
+        // Report
+        Route::get('/report', \App\Livewire\Admin\Report\PrintReport::class)->name('report');
+
+
+        Route::get('/print-pdf-order-report-day', function () {
+
+            $orders = session('orders');
+
+            if ($orders == null) {
+                return redirect()->back()->with('error', 'Data orders tidak ditemukan.');
+            }
+            return view('export-pdf-view.pdf-report-day', compact('orders'));
+
+        })->name('print-pdf-order-report-day');
+
+        Route::get('/print-pdf-order-report-month', function () {
+
+            $orders = session('orders');
+
+            if ($orders == null) {
+                return redirect()->back()->with('error', 'Data orders tidak ditemukan.');
+            }
+            return view('export-pdf-view.pdf-report-day', compact('orders'));
+
+        })->name('print-pdf-order-report-month');
+
+        Route::get('/print-pdf-order-report-year', function () {
+
+            $orders = session('orders');
+
+            if ($orders == null) {
+                return redirect()->back()->with('error', 'Data orders tidak ditemukan.');
+            }
+            return view('export-pdf-view.pdf-report-day', compact('orders'));
+
+        })->name('print-pdf-order-report-year');
 
     });
     // route for supervisor

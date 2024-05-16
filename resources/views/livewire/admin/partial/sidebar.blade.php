@@ -86,6 +86,17 @@
 
                         </ul>
                     </li>
+                    <li class="submenu">
+                        <a href="javascript:void(0);"><img src="{{ asset('assets/img/icons/printer.svg') }} "
+                                alt="img" /><span>
+                                Laporan</span>
+                            <span class="menu-arrow"></span></a>
+                        <ul>
+                            <li><a class="{{ Request::routeIs('report*') ? 'active' : '' }}"
+                                    href="{{ route('report') }}">Cetak Laporan</a></li>
+
+                        </ul>
+                    </li>
 
                 @endrole
 
