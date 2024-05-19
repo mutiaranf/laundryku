@@ -116,20 +116,7 @@
             <div class="card flex-fill">
                 <div class="card-header pb-0 d-flex justify-content-between align-items-center">
                     <h4 class="card-title mb-0">Recently Completed Order</h4>
-                    <div class="dropdown">
-                        <a href="javascript:void(0);" data-bs-toggle="dropdown" aria-expanded="false"
-                           class="dropset">
-                            <i class="fa fa-ellipsis-v"></i>
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <li>
-                                <a href="productlist.html" class="dropdown-item">Product List</a>
-                            </li>
-                            <li>
-                                <a href="addproduct.html" class="dropdown-item">Product Add</a>
-                            </li>
-                        </ul>
-                    </div>
+
                 </div>
                 <div class="card-body">
                     <div class="table-responsive dataview">
@@ -173,7 +160,6 @@
                                 <th>Estimated Time</th>
                                 <th>Order Status</th>
                                 <th>Price</th>
-                                <th>Action</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -187,16 +173,7 @@
                                             class="badge @if ($order->order_status == 'New') bg-primary @elseif ($order->order_status == 'Processed') bg-warning @elseif ($order->order_status == 'Completed') bg-success @else bg-danger @endif">{{ $order->order_status }}</span>
                                     </td>
                                     <td>Rp.{{ number_format($order->getTotalPriceAttribute(), 0, ',', '.') }},-</td>
-                                    <td>
-                                        <a wire:click="show({{ $order->id }})" class="me-2 confirm-text"
-                                           data-bs-toggle="modal" data-bs-target="#showOrderModal">
-                                            <img src="{{ asset('assets/img/icons/eye.svg') }}" alt="img"/>
-                                        </a>
-                                        <a wire:click="changeStatus({{ $order->id }}, 'Cancelled')"
-                                           class="me-2 confirm-text">
-                                            <img src="{{ asset('assets/img/icons/delete.svg') }}" alt="img"/>
-                                        </a>
-                                    </td>
+
                                 </tr>
                             @endforeach
                             </tbody>

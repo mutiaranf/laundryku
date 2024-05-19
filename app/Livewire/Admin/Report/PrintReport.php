@@ -4,7 +4,10 @@ namespace App\Livewire\Admin\Report;
 
 use App\Models\Order;
 use Livewire\Component;
+use App\Exports\OrdersExport;
 use Illuminate\Support\Facades\DB;
+use App\Exports\OrdersByYearExport;
+use App\Exports\OrdersByMonthExport;
 
 class PrintReport extends Component
 {
@@ -20,13 +23,37 @@ class PrintReport extends Component
 
     public $date_year;
 
-    public function printPdfOrderReportDay(){
+    public function printExcelOrderReportDay(){
         $this->validate([
             'date_day_from' => 'required',
             'date_day_to' => 'required',
         ]);
 
+        return (new OrdersExport)->byBetweenDate($this->date_day_from, $this->date_day_to)->download('orders-by-day.xlsx');
+    }
 
+    public function printExcelOrderReportMonth(){
+        $this->validate([
+            'date_month_from' => 'required',
+            'date_month_to' => 'required',
+        ]);
+
+        return (new OrdersByMonthExport)->byBeetweenMonth($this->date_month_from, $this->date_month_to)->download('orders-by-month.xlsx');
+    }
+
+    public function printExcelOrderReportYear(){
+        $this->validate([
+            'date_year' => 'required',
+        ]);
+
+        return (new OrdersByYearExport)->byYear($this->date_year)->download('orders-by-year.xlsx');
+    }
+
+    public function printPdfOrderReportDay(){
+        $this->validate([
+            'date_day_from' => 'required',
+            'date_day_to' => 'required',
+        ]);
 
         $orders = Order::with('detailOrder', 'customer', 'outlet')
         ->where(DB::raw("DATE(created_at)"), '>=', $this->date_day_from)
@@ -54,7 +81,7 @@ class PrintReport extends Component
         ->get();
 
             session(['orders' => $orders]);
-        $this->reset('date_month_from', 'date_month_to');
+        $this->reset();
             return redirect()->route('print-pdf-order-report-month');
     }
 
@@ -69,7 +96,7 @@ class PrintReport extends Component
         ->get();
 
             session(['orders' => $orders]);
-        $this->reset('date_year');
+        $this->reset();
             return redirect()->route('print-pdf-order-report-year');
     }
 }

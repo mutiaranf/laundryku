@@ -187,13 +187,11 @@
                                 <td> {{ $stock->category->unit }}</td>
                                 <td>{{ $stock->created_at->diffForHumans() }} </td>
                                 <td>
-                                    <a data-bs-toggle="modal" data-bs-target="#addStockModal"
-                                        wire:click="editS({{ $stock->id }})" class="btn btn-edit"><img
-                                            src="{{ asset('assets/img/icons/edit.svg') }}" alt="img" /></a>
+
                                     <a wire:click="deleteS({{ $stock->id }})" class="btn btn-delete"><img
                                             src="{{ asset('assets/img/icons/delete.svg') }}" alt="img" /></a>
-                                    <a wire:click="stock_id({{ $stock->id }})" data-bs-toggle="modal" data-bs-target="#addQtykModal"
-                                       class="btn btn-edit"><img
+                                    <a wire:click="stock_id({{ $stock->id }})" data-bs-toggle="modal"
+                                        data-bs-target="#addQtykModal" class="btn btn-edit"><img
                                             src="{{ asset('assets/img/icons/eye.svg') }}" alt="img" /></a>
                                 </td>
 
@@ -258,7 +256,8 @@
                                 <div class="col-lg-12 mt-3">
                                     <!-- cek aksi simpan atau perbarui -->
                                     @if ($edit_modeSC)
-                                        <button wire:click="updateSC" class="btn btn-submit me-2">Perbarui</button>
+                                        <button wire:click="updateSC({{ $stockCategoryId }})"
+                                            class="btn btn-submit me-2">Perbarui</button>
                                     @else
                                         <button type="submit" class="btn btn-submit me-2">Kirim</button>
                                     @endif
@@ -382,8 +381,13 @@
                                 </div>
                                 <div class="col-lg-6 d-flex justify-content-center align-items-center">
                                     @if ($photo)
-                                        <img src="{{ $photo->temporaryUrl() }}" alt=""
-                                            style="height: 300px; ">
+                                        @if ($old_photo)
+                                            <img src="{{ asset('storage/'.$old_photo) }}" alt=""
+                                                style="height: 300px; ">
+                                        @else
+                                            <img src="{{ $photo->temporaryUrl() }}" alt=""
+                                                style="height: 300px; ">
+                                        @endif
                                     @else
                                         <img src="{{ asset('storage/') }}" alt="" style="height: 300px; ">
                                     @endif
@@ -392,7 +396,8 @@
                                 <div class="col-lg-12 mt-3">
                                     <!-- cek aksi simpan atau perbarui -->
                                     @if ($edit_modeS)
-                                        <button wire:click="updateS" class="btn btn-submit me-2">Perbarui</button>
+                                        <button wire:click="updateS({{ $stockIdS }})"
+                                            class="btn btn-submit me-2">Perbarui</button>
                                     @else
                                         <button type="submit" class="btn btn-submit me-2">Kirim</button>
                                     @endif

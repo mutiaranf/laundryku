@@ -23,7 +23,7 @@
                         <th>Estimated Time</th>
                         <th>Order Status</th>
                         <th>Price</th>
-                        <th>Action</th>
+
                     </tr>
                     </thead>
                     <tbody>
@@ -37,16 +37,7 @@
                                     class="badge @if ($order->order_status == 'New') bg-primary @elseif ($order->order_status == 'Processed') bg-warning @elseif ($order->order_status == 'Completed') bg-success @else bg-danger @endif">{{ $order->order_status }}</span>
                             </td>
                             <td>Rp.{{ number_format($order->getTotalPriceAttribute(), 0, ',', '.') }},-</td>
-                            <td>
-                                <a wire:click="show({{ $order->id }})" class="me-2 confirm-text"
-                                   data-bs-toggle="modal" data-bs-target="#showOrderModal">
-                                    <img src="{{ asset('assets/img/icons/eye.svg') }}" alt="img"/>
-                                </a>
-                                <a wire:click="changeStatus({{ $order->id }}, 'Cancelled')"
-                                   class="me-2 confirm-text">
-                                    <img src="{{ asset('assets/img/icons/delete.svg') }}" alt="img"/>
-                                </a>
-                            </td>
+
                         </tr>
                     @endforeach
                     </tbody>

@@ -93,9 +93,7 @@
                                 <td> {{ $stock->category->unit }}</td>
                                 <td>{{ $stock->created_at->diffForHumans() }} </td>
                                 <td>
-                                    <a data-bs-toggle="modal" data-bs-target="#addStockModal"
-                                        wire:click="editS({{ $stock->id }})" class="btn btn-edit"><img
-                                            src="{{ asset('assets/img/icons/edit.svg') }}" alt="img" /></a>
+
                                     <a wire:click="deleteS({{ $stock->id }})" class="btn btn-delete"><img
                                             src="{{ asset('assets/img/icons/delete.svg') }}" alt="img" /></a>
                                     <a wire:click="stock_id({{ $stock->id }})" data-bs-toggle="modal" data-bs-target="#addQtykModal"

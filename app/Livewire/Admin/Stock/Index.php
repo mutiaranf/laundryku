@@ -72,9 +72,11 @@ class Index extends Component
         $this->reset();
     }
 
+    public $stockCategoryId;
     public function editSC($id)
     {
         $stockCategory = StockCategory::find($id);
+        $this->stockCategoryId = $stockCategory->id;
         $this->nameSC = $stockCategory->name;
         $this->unit = $stockCategory->unit;
         $this->descriptionSC = $stockCategory->description;
@@ -119,6 +121,7 @@ class Index extends Component
     public $total_price;
     public $minimum_quantity;
     public $photo;
+    public $old_photo;
     public $edit_modeS;
     public $outlet_id;
     public $category_id;
@@ -234,15 +237,16 @@ class Index extends Component
             'message' => $this->stock_number . ' ' . $stock->name . ' Reduced Successfully.'
         ]);
     }
-
+    public $stockIdS;
     public function editS($id)
     {
         $stock = Stock::find($id);
+        $this->stockIdS = $stock->id;
         $this->nameS = $stock->name;
         $this->initial_quantity = $stock->initial_quantity;
         $this->price = $stock->price;
         $this->minimum_quantity = $stock->minimum_quantity;
-        $this->photo = $stock->photo;
+        $this->old_photo = $stock->photo;
         $this->outlet_id = $stock->outlet_id;
         $this->category_id = $stock->stock_categories_id;
         $this->edit_modeS = true;
@@ -262,9 +266,12 @@ class Index extends Component
 
         $stock = Stock::find($id);
         if ($this->photo) {
-            $this->photo = $this->photo->store('stock-photos', 'public');
+            if($this->old_photo){
+                unlink('storage/'.$this->old_photo);
+            }
+          $this->photo->store('stock-photos', 'public');
         } else {
-            $this->photo = $stock->photo;
+            $this->photo = $this->old_photo;
         }
         $total_price = $this->initial_quantity * $this->price;
         $stock->update([

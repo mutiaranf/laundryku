@@ -6,10 +6,13 @@ use App\Models\Outlet;
 use Livewire\Component;
 use App\Models\Employee;
 use App\Models\Position;
+use Livewire\WithFileUploads;
 use Livewire\Attributes\Validate;
 
 class Edit extends Component
 {
+
+    use WithFileUploads;
     public function render()
     {
         $outlets = Outlet::all();

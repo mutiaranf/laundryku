@@ -18,7 +18,7 @@ class Order extends Model
 
     public function detailOrder()
     {
-       return $this->hasOne(DetailOrder::class);
+       return $this->hasMany(DetailOrder::class);
     }
 
     public function outlet()

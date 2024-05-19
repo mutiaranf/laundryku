@@ -19,11 +19,11 @@
                 <tr>
                     <th>No</th>
                     <th>Order ID</th>
-                    <th>Customer Name</th>
+                    <th>Nama Pelanggan</th>
                     <th>Outlet</th>
                     <th>Status</th>
-                    <th>Total Price</th>
-                    <th>Order Date</th>
+                    <th>Total Harga</th>
+                    <th>Tanggal Pesanan</th>
                 </tr>
             </thead>
             <tbody>
@@ -41,10 +41,34 @@
                             <td>{{ $data->customer->name }}</td>
                             <td>{{ $data->outlet->name }}</td>
                             <td>{{ $data->order_status }}</td>
-                            <td>{{ $data->detailOrder->total_price }}</td>
+                            <td>
+                                @php
+                                    $totalPrice = 0;
+                                    foreach($data->detailOrder as $key => $value) {
+                                        $totalPrice += $value->total_price;
+                                    }
+                                    echo $totalPrice;
+                                @endphp
+                            </td>
                             <td>{{ date_format($data->created_at, "d/m/Y") }}</td>
                         </tr>
                     @endforeach
+                    <tr>
+
+                    </tr>
+                        <th colspan="5" class="text-end font-bold">Total :</th>
+                        <th>
+                            @php
+                                $totalPrice = 0;
+                                foreach($orders as $key => $value) {
+                                    foreach($value->detailOrder as $key => $detail) {
+                                        $totalPrice += $detail->total_price;
+                                    }
+                                }
+                                echo $totalPrice;
+                            @endphp
+                        </th>
+                    </tr>
                 @endif
 
             </tbody>

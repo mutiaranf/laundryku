@@ -22,6 +22,8 @@
                     </div>
                     <div class="d-flex">
                         <a wire:click='printPdfOrderReportDay' class="btn btn-danger mt-3 me-2">Cetak PDF</a>
+                        {{-- <button wire:click='printExcelOrderReportDay' class="btn btn-success mt-3 me-2">Cetak
+                            EXCEL</button> --}}
                     </div>
                 </div>
             </div>
@@ -43,6 +45,9 @@
                 </div>
                 <div class="d-flex">
                     <button wire:click='printPdfOrderReportMonth' class="btn btn-danger mt-3 me-2">Cetak PDF</button>
+                    {{-- <button wire:click='printExcelOrderReportMonth' class="btn btn-success mt-3 me-2">Cetak
+                        EXCEL</button> --}}
+
                 </div>
             </div>
             <div class="mb-5 ">
@@ -60,6 +65,9 @@
                 </div>
                 <div class="d-flex">
                     <button wire:click='printPdfOrderReportYear' class="btn btn-danger mt-3 me-2">Cetak PDF</button>
+                    {{-- <button wire:click='printExcelOrderReportYear' class="btn btn-success mt-3 me-2">Cetak
+                        EXCEL</button> --}}
+
                 </div>
             </div>
 
