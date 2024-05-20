@@ -131,10 +131,18 @@ class Index extends Component
         if ($serviceType->icon) {
             unlink('storage/' . $serviceType->icon);
         }
-        $serviceType->delete();
-        $this->dispatch('success', [
-            'message' => 'Service Type deleted successfully.'
-        ]);
+
+
+
+        if($serviceType->delete()){
+            $this->dispatch('success', [
+                'message' => 'Service Type deleted successfully.'
+            ]);
+        }else {
+            $this->dispatch('error', [
+                'message' => 'Tidak bisa dihapus karena sudah digunakan di service package.'
+            ]);
+        }
     }
 
     public function resetFormST(): void
