@@ -26,7 +26,7 @@
 
         <li class="nav-item dropdown has-arrow main-drop">
             <a href="javascript:void(0);" class="dropdown-toggle nav-link userset" data-bs-toggle="dropdown">
-                <span class="user-img"><img src="{{ Auth::user()->profile_photo_url }}"
+                <span class="user-img"><img src="{{asset(Auth::user()->profile_photo_url)}}"
                                             alt="{{ Auth::user()->name }}" class="rounded-circle"
                                             style="height: 2.5rem; width: 2.5rem; object-fit: cover" />
                     <span class="status online"></span></span>
@@ -34,7 +34,8 @@
             <div class="dropdown-menu menu-drop-user">
                 <div class="profilename">
                     <div class="profileset">
-                        <span class="user-img"><img src="{{ Auth::user()->profile_photo_url }}"
+
+                        <span class="user-img"><img src="{{asset(Auth::user()->profile_photo_url) }}"
                                                     alt="{{ Auth::user()->name }}" class="rounded-circle"
                                                     style="height: 2.5rem; width: 2.5rem; object-fit: cover" />
                             <span class="status online"></span></span>
