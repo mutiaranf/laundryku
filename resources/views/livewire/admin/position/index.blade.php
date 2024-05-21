@@ -190,6 +190,13 @@
                 }
                 toastr.success(data[0].message);
             });
+            Livewire.on('error', data => {
+                // toaster setup
+                toastr.options = {
+                    "closeButton": true,
+                }
+                toastr.error(data[0].message);
+            });
 
             // create alert
             function yourLoggedin() {

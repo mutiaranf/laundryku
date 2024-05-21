@@ -60,14 +60,19 @@ class Index extends Component
     // delete user with photo profile
     public function delete($id)
     {
-        $user = User::find($id);
-        if ($user->profile_photo_path) {
-            unlink('storage/' . $user->profile_photo_path);
+
+        try{
+
+            $user = User::find($id);
+            $user->delete();
+            $this->dispatch('success', [
+                'message' => 'User Deleted Successfully.'
+            ]);
+        } catch (\Exception $exception) {
+            $this->dispatch('error', [
+                'message' => 'Masih terikat dengan data lain, silahkan hapus data tersebut terlebih dahulu.'
+            ]);
         }
-        $user->delete();
-        $this->dispatch('success', [
-            'message' => 'User Deleted Successfully.'
-        ]);
     }
     public function updateStatus($id)
     {

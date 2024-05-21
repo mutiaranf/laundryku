@@ -17,4 +17,9 @@ class ServiceType extends Model
         'icon',
         'unit',
     ];
+
+
+    public function servicePackages(){
+        return $this->hasMany(ServicePackage::class);
+    }
 }

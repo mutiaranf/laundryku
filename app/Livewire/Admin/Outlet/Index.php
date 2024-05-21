@@ -127,13 +127,20 @@ class Index extends Component
     //   delete outlet with photo
     public function delete($id)
     {
-        $outlet = Outlet::find($id);
-        if($outlet->photo){
-            unlink('storage/'.$outlet->photo);
+        try{
+            $outlet = Outlet::find($id);
+            if($outlet->photo){
+                unlink('storage/'.$outlet->photo);
+            }
+            $outlet->delete();
+            $this->dispatch('success',[
+                'message' => 'Outlet Deleted Successfully.'
+            ]);
+        } catch(\Exception $e){
+            $this->dispatch('error',[
+                'message' => "Masih Terikat dengan data yg lain spt karyawan dll"
+            ]);
         }
-        $outlet->delete();
-        $this->dispatch('success',[
-            'message' => 'Outlet Deleted Successfully.'
-        ]);
+
     }
 }

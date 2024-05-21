@@ -20,7 +20,7 @@ class Create extends Component
 
     #[Validate('required|string|max:255')]
     public $name;
-    #[Validate('required|email')]
+    #[Validate('required|email|unique:App\Models\Employee,email')]
     public $email;
     #[Validate('required|numeric')]
     public $phone;
@@ -39,7 +39,9 @@ class Create extends Component
     #[Validate('required')]
     public $status;
 
+    #[Validate('required')]
     public $outlet_id;
+    #[Validate('required')]
     public $position_id;
 
 //    store employee with photo

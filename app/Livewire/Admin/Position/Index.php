@@ -82,11 +82,18 @@ class Index extends Component
 
     public function delete($id)
     {
-        $position = \App\Models\Position::find($id);
-        $position->delete();
-        $this->dispatch('success',[
-            'message' => 'User Deleted Successfully.'
-        ]);
+        try{
+
+            $position = \App\Models\Position::find($id);
+            $position->delete();
+            $this->dispatch('success',[
+                'message' => 'User Deleted Successfully.'
+            ]);
+        }catch(\Exception $e){
+            $this->dispatch('error',[
+                'message' => 'Something went wrong.'
+            ]);
+        }
     }
 
 }

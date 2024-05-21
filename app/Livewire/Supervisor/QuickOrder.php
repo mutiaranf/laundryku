@@ -14,6 +14,7 @@ use App\Models\ServiceType;
 use App\Models\PieceService;
 use App\Models\ServicePackage;
 use App\Models\TransactionOrder;
+use Livewire\Attributes\Validate;
 use PhpParser\Node\Expr\Cast\Double;
 
 class QuickOrder extends Component
@@ -28,12 +29,11 @@ class QuickOrder extends Component
         $pieceServices = PieceService::all();
         return view('livewire.supervisor.quick-order', compact('serviceTypes', 'servicePackages', 'pieceServices'));
     }
-
     public $outletId;
     public function __construct()
     {
         $employeeId = auth()->user()->employee_id;
-        $this->outletId = Employee::where('id', $employeeId)->first()->id;
+        $this->outletId = Employee::where('id', $employeeId)->first()->outlet_id;
     }
 
 
@@ -233,6 +233,7 @@ class QuickOrder extends Component
 
     public function createOrder()
     {
+
         $this->validate([
             'selectedCustomerId' => 'required',
 

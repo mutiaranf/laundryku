@@ -17,8 +17,7 @@ class Index extends Component
     public function __construct()
     {
 
-        $employeeId = auth()->user()->employee_id;
-        $this->outletId = Employee::where('id', $employeeId)->first()->id;
+        $this->outletId = Employee::find(auth()->user()->employee_id)->outlet_id;
     }
     public function render()
     {

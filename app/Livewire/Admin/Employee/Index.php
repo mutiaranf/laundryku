@@ -49,14 +49,19 @@ class Index extends Component
 
     public function delete($id)
     {
-        $employee = Employee::find($id);
-        if ($employee->photo) {
-            unlink('storage/' . $employee->photo);
+
+        try{
+            $employee = Employee::find($id);
+            $employee->delete();
+            $this->dispatch('success', [
+                'message' => 'Employee deleted successfully.'
+            ]);
+        } catch (\Exception $e) {
+
+            $this->dispatch('error', [
+                'message' => 'Masih terikat dengan data lain.'
+            ]);
         }
-        $employee->delete();
-        $this->dispatch('success', [
-            'message' => 'Employee deleted successfully.'
-        ]);
     }
 
     public $name;

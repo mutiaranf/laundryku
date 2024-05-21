@@ -28,7 +28,7 @@ class Index extends Component
             ->where('name', 'like', '%' . $this->searchSP . '%')
             ->latest()
             ->paginate($this->perPageSP);
-        return view('livewire.admin.service.index',compact('serviceTypes','serviceTypesAll','servicePackages'));
+        return view('livewire.admin.service.index', compact('serviceTypes', 'serviceTypesAll', 'servicePackages'));
     }
 
     // ST = Service Type
@@ -105,7 +105,7 @@ class Index extends Component
                 unlink('storage/' . $serviceType->icon);
             }
             $this->iconST = $this->iconST->store('service-icons', 'public');
-        }else{
+        } else {
             $this->iconST = $this->oldIconST;
         }
 
@@ -127,18 +127,18 @@ class Index extends Component
 
     public function deleteST($id): void
     {
-        $serviceType = ServiceType::find($id);
-        if ($serviceType->icon) {
-            unlink('storage/' . $serviceType->icon);
-        }
 
-
-
-        if($serviceType->delete()){
-            $this->dispatch('success', [
-                'message' => 'Service Type deleted successfully.'
-            ]);
-        }else {
+        try {
+            $serviceType = ServiceType::find($id);
+            if ($serviceType->delete()) {
+                if ($serviceType->icon) {
+                    unlink('storage/' . $serviceType->icon);
+                }
+                $this->dispatch('success', [
+                    'message' => 'Service Type deleted successfully.'
+                ]);
+            }
+        } catch (\Exception $e) {
             $this->dispatch('error', [
                 'message' => 'Tidak bisa dihapus karena sudah digunakan di service package.'
             ]);
@@ -177,7 +177,7 @@ class Index extends Component
     public function storeSP(): void
     {
 
-         $this->validate([
+        $this->validate([
             'nameSP' => 'required',
             'priceSP' => 'required',
             'estimated_timeSP' => 'required',
@@ -240,7 +240,7 @@ class Index extends Component
                 unlink('storage/' . $servicePackage->photo);
             }
             $this->photoSP = $this->photoSP->store('service-photos', 'public');
-        }else{
+        } else {
             $this->photoSP = $this->oldPhotoSP;
         }
 
@@ -284,6 +284,4 @@ class Index extends Component
     {
         $this->reset(['searchSP']);
     }
-
-
 }

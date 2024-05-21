@@ -107,11 +107,19 @@ class Index extends Component
 
     public function deleteSC($id)
     {
-        $stockCategory = StockCategory::find($id);
-        $stockCategory->delete();
-        $this->dispatch('success', [
-            'message' => 'Stock Category Deleted Successfully.'
-        ]);
+
+        try {
+
+            $stockCategory = StockCategory::find($id);
+            $stockCategory->delete();
+            $this->dispatch('success', [
+                'message' => 'Stock Category Deleted Successfully.'
+            ]);
+        } catch (\Exception $th) {
+            $this->dispatch('error', [
+                'message' => 'Masih Terikat dengan data lain.'
+            ]);
+        }
     }
 
     public $nameS;
