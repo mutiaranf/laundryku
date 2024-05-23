@@ -115,7 +115,7 @@
         <div class="col-lg-5 col-sm-12 col-12 d-flex">
             <div class="card flex-fill">
                 <div class="card-header pb-0 d-flex justify-content-between align-items-center">
-                    <h4 class="card-title mb-0">Recently Completed Order</h4>
+                    <h4 class="card-title mb-0">Pesanan Terbaru</h4>
 
                 </div>
                 <div class="card-body">
@@ -123,8 +123,8 @@
                         <table class="table datatable">
                             <thead>
                             <tr>
-                                <th>Sno</th>
-                                <th>Customer Name</th>
+                                <th>No</th>
+                                <th>Nama Pelanggan</th>
                                 <th>Status</th>
                             </tr>
                             </thead>
@@ -156,10 +156,10 @@
                             <tr>
                                 <th>No</th>
                                 <th>Order ID</th>
-                                <th>Customer</th>
-                                <th>Estimated Time</th>
-                                <th>Order Status</th>
-                                <th>Price</th>
+                                <th>Pelanggan</th>
+                                <th>Waktu Estimasi</th>
+                                <th>Status Order</th>
+                                <th>Harga</th>
                             </tr>
                             </thead>
                             <tbody>

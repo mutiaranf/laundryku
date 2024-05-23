@@ -10,7 +10,7 @@
                         Rp. <span class="counters"
                                   data-count="{{ $CashBalance->amount }}">{{ number_format($CashBalance->amount, 0, ',', '.') }}</span>
                     </h5>
-                    <h6>Total Cash Balance</h6>
+                    <h6>Total Saldo Kas</h6>
                 </div>
             </div>
         </div>
@@ -24,7 +24,7 @@
                         Rp.<span class="counters"
                                  data-count="{{ $income }}">{{ number_format($income, 0, ',', '.') }}</span>
                     </h5>
-                    <h6>Total Income - {{ Carbon\Carbon::now()->isoFormat('MMMM YYYY') }}</h6>
+                    <h6>Total Pendapatan - {{ Carbon\Carbon::now()->isoFormat('MMMM YYYY') }}</h6>
                 </div>
             </div>
         </div>
@@ -38,7 +38,7 @@
                         Rp.<span class="counters"
                                  data-count="{{ $expense }}">{{ number_format($expense, 0, ',', '.') }}</span>
                     </h5>
-                    <h6>Total Expense Amount - {{ Carbon\Carbon::now()->isoFormat('MMMM YYYY') }}</h6>
+                    <h6>Total Pengeluaran - {{ Carbon\Carbon::now()->isoFormat('MMMM YYYY') }}</h6>
                 </div>
             </div>
         </div>
@@ -52,7 +52,7 @@
                         RP.<span class="counters"
                                  data-count="{{ $profit }}">{{ number_format($profit, 0, ',', '.') }}</span>
                     </h5>
-                    <h6>Total Profit Amount - {{ Carbon\Carbon::now()->isoFormat('MMMM YYYY') }}</h6>
+                    <h6>Total Keuntungan - {{ Carbon\Carbon::now()->isoFormat('MMMM YYYY') }}</h6>
                 </div>
             </div>
         </div>
@@ -60,7 +60,7 @@
             <div class="dash-count">
                 <div class="dash-counts">
                     <h4>{{ $customer_count }}</h4>
-                    <h5>Customers</h5>
+                    <h5>Pelanggan</h5>
                 </div>
                 <div class="dash-imgs">
                     <i data-feather="user"></i>
@@ -86,7 +86,7 @@
         <div class="col-lg-12 col-sm-12 col-12 d-flex">
             <div class="card flex-fill">
                 <div class="card-header pb-0 d-flex justify-content-between align-items-center">
-                    <h4 class="card-title mb-0">Recently Order Today</h4>
+                    <h4 class="card-title mb-0">Pesanan Terbaru Hari Ini</h4>
                     <div class="dropdown">
                         <a href="javascript:void(0);" data-bs-toggle="dropdown" aria-expanded="false"
                            class="dropset">
@@ -107,8 +107,8 @@
                         <table class="table datatable">
                             <thead>
                             <tr>
-                                <th>Sno</th>
-                                <th>Customer Name</th>
+                                <th>No</th>
+                                <th>Nama Pelanggan</th>
                                 <th>Status</th>
                             </tr>
                             </thead>

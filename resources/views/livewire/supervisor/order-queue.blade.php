@@ -17,7 +17,7 @@
                     <div class="dash-count">
                         <div class="dash-counts">
                             <h4>{{ $order_queue_count }}</h4>
-                            <h5>Queue</h5>
+                            <h5>Antrian</h5>
                         </div>
                         <div class="dash-imgs">
                             <i data-feather="file-text"></i>
@@ -39,7 +39,7 @@
                     <div class="dash-count das2">
                         <div class="dash-counts">
                             <h4>{{ $customer_count }}</h4>
-                            <h5>Customer</h5>
+                            <h5>Pelanggan</h5>
                         </div>
                         <div class="dash-imgs">
                             <i data-feather="file-text"></i>
@@ -65,11 +65,11 @@
                         <tr>
                             <th>No</th>
                             <th>Order ID</th>
-                            <th>Customer</th>
-                            <th>Estimated Time</th>
-                            <th>Order Status</th>
-                            <th>Price</th>
-                            <th>Action</th>
+                            <th>Pelanggan</th>
+                            <th>Waktu Estimasi</th>
+                            <th>Status Order</th>
+                            <th>Harga</th>
+                            <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -122,23 +122,23 @@
                         <table class="table mb-0">
                             <tbody>
                                 <tr>
-                                    <td style="font-weight: bold !important; color: black !important;">Customer Name
+                                    <td style="font-weight: bold !important; color: black !important;">Nama Pelanggan
                                     </td>
                                     <td>{{ $customer_name }}</td>
                                 </tr>
                                 <tr>
-                                    <td style="font-weight: bold !important; color: black !important;">Estimated Time
+                                    <td style="font-weight: bold !important; color: black !important;">Waktu Estimasi
                                     </td>
                                     <td>{{ $estimated_time }}</td>
                                 </tr>
                                 <tr>
-                                    <td style="font-weight: bold !important; color: black !important;">Order Status</td>
+                                    <td style="font-weight: bold !important; color: black !important;">Status Order</td>
                                     <td><span
                                             class="badge @if ($order_status == 'New') bg-primary @elseif ($order_status == 'Processed') bg-warning @elseif ($order_status == 'Completed') bg-success @else bg-danger @endif">{{ $order_status }}</span>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td style="font-weight: bold !important; color: black !important;">Note</td>
+                                    <td style="font-weight: bold !important; color: black !important;">Catatan</td>
                                     <td>{{ $note }}</td>
                                 </tr>
 
@@ -147,7 +147,7 @@
                                         <td style="font-weight: bold !important; color: black !important;">
                                             {{ $services[$i]['service_name'] }}</td>
                                         <td>
-                                            Qty : {{ $services[$i]['quantity'] }} | Price :
+                                            Qty : {{ $services[$i]['quantity'] }} | Harga :
                                             {{ $services[$i]['price'] }} | Total : {{ $services[$i]['total_price'] }}
                                             <br>
                                         </td>
@@ -155,7 +155,7 @@
                                 @endfor
 
                                 <tr>
-                                    <td style="font-weight: bold !important; color: black !important;">Total Price</td>
+                                    <td style="font-weight: bold !important; color: black !important;">Total Harga</td>
                                     <td>{{ $total_price }}</td>
                                 </tr>
                                 <tr>

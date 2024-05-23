@@ -19,10 +19,10 @@
                     <tr>
                         <th>No</th>
                         <th>Order ID</th>
-                        <th>Customer</th>
-                        <th>Estimated Time</th>
-                        <th>Order Status</th>
-                        <th>Price</th>
+                        <th>Pelanggan</th>
+                        <th>Waktu Estimasi</th>
+                        <th>Status Order</th>
+                        <th>Harga</th>
 
                     </tr>
                     </thead>
