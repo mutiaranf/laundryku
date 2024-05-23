@@ -58,7 +58,7 @@ class PrintReport extends Component
         $orders = Order::with('detailOrder', 'customer', 'outlet')
         ->where(DB::raw("DATE(created_at)"), '>=', $this->date_day_from)
         ->where(DB::raw("DATE(created_at)"), '<=', $this->date_day_to)
-        ->orderByRaw("FIELD(order_status, 'Completed', 'Cancelled') ASC")
+        ->where('order_status','Completed')
         ->get();
 
             session(['orders' => $orders]);
@@ -77,7 +77,7 @@ class PrintReport extends Component
         $orders = Order::with('detailOrder', 'customer', 'outlet')
         ->where(DB::raw("DATE_FORMAT(created_at, '%Y-%m')"), '>=', $this->date_month_from)
         ->where(DB::raw("DATE_FORMAT(created_at, '%Y-%m')"), '<=', $this->date_month_to)
-        ->orderByRaw("FIELD(order_status, 'Completed', 'Cancelled') ASC")
+        ->where('order_status','Completed')
         ->get();
 
             session(['orders' => $orders]);
@@ -92,7 +92,7 @@ class PrintReport extends Component
 
         $orders = Order::with('detailOrder', 'customer', 'outlet')
         ->where(DB::raw("YEAR(created_at)"), $this->date_year)
-        ->orderByRaw("FIELD(order_status, 'Completed', 'Cancelled') ASC")
+        ->where('order_status','Completed')
         ->get();
 
             session(['orders' => $orders]);

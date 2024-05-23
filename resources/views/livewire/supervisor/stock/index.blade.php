@@ -13,15 +13,14 @@
 
     <div class="page-header">
         <div class="page-title">
-            <h4>Stock List</h4>
-            <h6>Manage Stoks</h6>
+            <h4>Daftar Inventori</h4>
+            <h6>Kelola Inventory</h6>
         </div>
 
         <div class="page-btn">
             <a data-bs-toggle="modal" data-bs-target="#addStockModal" class="btn btn-added"><img
                     src="{{ asset('assets/img/icons/plus.svg') }} "
-                    alt="img"/>Add
-                Stocks</a>
+                    alt="img"/>Tambah Inventori</a>
         </div>
 
     </div>
@@ -121,7 +120,7 @@
             <div class="modal-dialog modal-xl">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Add Service Type</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Tambah Tipe Inventori</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -130,7 +129,7 @@
                                 <div class="col-lg-6">
                                     <div class="form-group
                                 ">
-                                        <label>Name</label>
+                                        <label>Nama</label>
                                         <input wire:model='nameSC' type="text" class="form-control">
                                         @error('nameSC')
                                         <span class="text-danger">{{ $message }}</span>
@@ -151,7 +150,7 @@
                                 <div class="col-lg-12">
                                     <div class="form-group
                                 ">
-                                        <label>Description</label>
+                                        <label>Deskripsi</label>
                                         <textarea wire:model='descriptionSC' class="form-control"></textarea>
                                         @error('descriptionSC')
                                         <span class="text-danger">{{ $message }}</span>
@@ -187,7 +186,7 @@
             <div class="modal-dialog modal-xl">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Add Stock</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Tambah Inventori</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -195,7 +194,7 @@
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <label>Name</label>
+                                        <label>Nama</label>
                                         <input wire:model='nameS' type="text" class="form-control">
                                         @error('nameS')
                                         <span class="text-danger">{{ $message }}</span>
@@ -206,7 +205,7 @@
                                     <div class="form-group">
                                         <label>Outlet </label>
                                         <select wire:model="outlet_id" id="" class="form-control">
-                                            <option value="">Select Outlet</option>
+                                            <option value="">Pilih Outlet</option>
                                             @foreach($outlets as $outlet)
                                                 <option value="{{ $outlet->id }}">{{ $outlet->name }}</option>
                                             @endforeach
@@ -218,9 +217,9 @@
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <label>Category </label>
+                                        <label>Kategori </label>
                                         <select wire:model="category_id" id="" class="form-control">
-                                            <option value="">Select Category</option>
+                                            <option value="">Pilih Kategori</option>
                                             @foreach($stock_categories as $stock_category)
                                                 <option value="{{ $stock_category->id }}">{{ $stock_category->name }}
                                                     ( {{$stock_category->unit}} )
@@ -234,7 +233,7 @@
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <label>Initial Quantity</label>
+                                        <label>Jumlah Awal</label>
                                         <input id="initial_qty" wire:model='initial_quantity' type="number"
                                                class="form-control">
                                         @error('initial_quantity')
@@ -244,14 +243,14 @@
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <label>Current Quantity</label>
+                                        <label>Jumlah Saat ini</label>
                                         <input wire:model="current_quantity" id="current_qty" type="text"
                                                class="form-control" disabled>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <label>Price</label>
+                                        <label>Harga</label>
                                         <input id="price" wire:model='price' type="number" class="form-control">
                                         @error('price')
                                         <span class="text-danger">{{ $message }}</span>
@@ -260,7 +259,7 @@
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <label>Minimum Quantity</label>
+                                        <label>Jumlah Minimal</label>
                                         <input wire:model='minimum_quantity' type="number" class="form-control">
                                         @error('minimum_quantity')
                                         <span class="text-danger">{{ $message }}</span>
@@ -269,7 +268,7 @@
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <label>Total Price</label>
+                                        <label>Total Harga</label>
                                         <input wire:model="total_price" id="total_price" type="number"
                                                class="form-control" disabled>
                                     </div>
@@ -321,7 +320,7 @@
             <div class="modal-dialog modal-sm modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Add / Reduce Stock</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Tambah / Kurang Inventori</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                             aria-label="Close"></button>
                     </div>
@@ -403,3 +402,4 @@
             }
         </script>
 @endpush
+

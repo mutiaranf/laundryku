@@ -17,7 +17,7 @@
         <div class="page-btn">
             <a data-bs-toggle="modal" data-bs-target="#addServiceTypeModal" class="btn btn-added"><img
                     src="{{ asset('assets/img/icons/plus.svg') }} " alt="img" />Tambah
-                Jenis Stok</a>
+                Jenis Inventori</a>
         </div>
     </div>
 
@@ -101,14 +101,14 @@
 
     <div class="page-header">
         <div class="page-title">
-            <h4>Daftar Stok</h4>
-            <h6>Kelola Stok</h6>
+            <h4>Daftar Inventori</h4>
+            <h6>Kelola Inventori</h6>
         </div>
 
         <div class="page-btn">
             <a data-bs-toggle="modal" data-bs-target="#addStockModal" class="btn btn-added"><img
                     src="{{ asset('assets/img/icons/plus.svg') }} " alt="img" />Tambah
-                Stok</a>
+                Inventori</a>
         </div>
 
     </div>
@@ -214,7 +214,7 @@
             <div class="modal-dialog modal-xl">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Tambah Jenis Stok</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Tambah Jenis Inventori</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                             aria-label="Close"></button>
                     </div>
@@ -280,7 +280,7 @@
             <div class="modal-dialog modal-xl">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Tambah Stok</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Tambah Inventori</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                             aria-label="Close"></button>
                     </div>
@@ -422,7 +422,7 @@
             <div class="modal-dialog modal-sm modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Add / Reduce Stock</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Tambah / Kurang Inventori</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                             aria-label="Close"></button>
                     </div>
