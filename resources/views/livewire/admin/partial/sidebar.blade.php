@@ -78,11 +78,11 @@
                     <li class="submenu">
                         <a href="javascript:void(0);"><img src="{{ asset('assets/img/icons/product.svg') }} "
                                 alt="img" /><span>
-                                Stok</span>
+                                Inventori</span>
                             <span class="menu-arrow"></span></a>
                         <ul>
                             <li><a class="{{ Request::routeIs('stock*') ? 'active' : '' }}"
-                                    href="{{ route('stock') }}">Manajemen Stok</a></li>
+                                    href="{{ route('stock') }}">Manajemen Inventori</a></li>
 
                         </ul>
                     </li>
@@ -139,11 +139,11 @@
                     <li class="submenu">
                         <a href="javascript:void(0);"><img src="{{ asset('assets/img/icons/product.svg') }} "
                                 alt="img" /><span>
-                                Stok</span>
+                                Inventori</span>
                             <span class="menu-arrow"></span></a>
                         <ul>
                             <li><a href="{{ route('stockOutlet') }}" class="{{ Request::routeIs('stockOutlet*') ? 'active' : '' }}">Daftar
-                                    Stok</a></li>
+                                    Inventori</a></li>
                         </ul>
                     </li>
                     {{-- <li class="submenu">
