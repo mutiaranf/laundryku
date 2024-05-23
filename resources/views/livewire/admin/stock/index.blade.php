@@ -11,8 +11,8 @@
 <div class="content">
     <div class="page-header">
         <div class="page-title">
-            <h4>Jenis Stok</h4>
-            <h6>Kelola Jenis Stok</h6>
+            <h4>Jenis Inventori</h4>
+            <h6>Kelola Jenis Inventori</h6>
         </div>
         <div class="page-btn">
             <a data-bs-toggle="modal" data-bs-target="#addServiceTypeModal" class="btn btn-added"><img
