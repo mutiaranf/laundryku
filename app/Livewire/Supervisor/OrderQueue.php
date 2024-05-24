@@ -15,7 +15,7 @@ use App\Models\ServicePackage;
 class OrderQueue extends Component
 {
 
-
+   
     public $outlet_id;
     public function __construct()
     {

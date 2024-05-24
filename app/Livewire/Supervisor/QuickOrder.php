@@ -12,6 +12,7 @@ use App\Models\CashBalance;
 use App\Models\DetailOrder;
 use App\Models\ServiceType;
 use App\Models\PieceService;
+use Livewire\WithPagination;
 use App\Models\ServicePackage;
 use App\Models\TransactionOrder;
 use Livewire\Attributes\Validate;
