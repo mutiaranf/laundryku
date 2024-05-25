@@ -4,6 +4,7 @@ namespace App\Livewire\Supervisor;
 
 use App\Models\Order;
 use Livewire\Component;
+use App\Models\Employee;
 use Livewire\WithPagination;
 
 class OrderList extends Component
