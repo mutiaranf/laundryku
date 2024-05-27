@@ -23,9 +23,10 @@
         <table style='width:350px; font-size:16pt; font-family:calibri; border-collapse: collapse;' border = '0'>
             <td width='70%' align='CENTER' vertical-align:top'><span style='color:black;'>
                     <b style="text-transform: uppercase">{{ $outletName }}</b></br>{{ $outletAdress }}</span></br>
-                <span style='font-size:12pt'>No. : 1, {{ date('F j, Y') }} (Kasir: {{ Auth::user()->name }}),
-                    {{ date('H:i:s') }}</span></br>
+                <span style='font-size:12pt'>{{ \Carbon\Carbon::now()->locale('id')->isoFormat('LL') }} - {{ \Carbon\Carbon::now()->locale('id')->isoFormat('LT') }}, Kasir: {{ Auth::user()->name }},
+                    <br> Nama : {{ $customerName }}</span></br>
             </td>
+
         </table>
         <style>
             hr {

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Supervisor;
 
+use App\Models\Order;
 use App\Models\Employee;
 use App\Models\ServiceType;
 use Illuminate\Http\Request;
@@ -20,6 +21,8 @@ class PrintStruct extends Controller
             ->where('orders.order_status', 'Completed')
             ->get();
 
+        $customerName = Order::with('customer')->where('id', $id)->first()->customer->name;
+
 
 
         $dataStruct = []; // Initialize an empty array to store the data for
@@ -35,6 +38,7 @@ class PrintStruct extends Controller
         $outletAdress = Employee::with('outlet')->find(auth()->user()->employee_id)->outlet->address;
         $outletName = Employee::with('outlet')->find(auth()->user()->employee_id)->outlet->name;
 
-        return view('livewire.supervisor.struct-order',compact('dataStruct','totalPrice','outletAdress','outletName'));
+
+        return view('livewire.supervisor.struct-order',compact('dataStruct','totalPrice','outletAdress','outletName','customerName'));
     }
 }
