@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Supervisor;
 
+use App\Models\Employee;
 use App\Models\ServiceType;
 use Illuminate\Http\Request;
 use App\Models\ServicePackage;
@@ -10,6 +11,8 @@ use App\Http\Controllers\Controller;
 
 class PrintStruct extends Controller
 {
+
+
     public function index($id){
         $data = DB::table('orders')
             ->join('detail_orders', 'orders.id', '=', 'detail_orders.order_id')
@@ -29,7 +32,9 @@ class PrintStruct extends Controller
             ];
         }
         $totalPrice = $data->sum('total_price');
+        $outletAdress = Employee::with('outlet')->find(auth()->user()->employee_id)->outlet->address;
+        $outletName = Employee::with('outlet')->find(auth()->user()->employee_id)->outlet->name;
 
-        return view('livewire.supervisor.struct-order',compact('dataStruct','totalPrice'));
+        return view('livewire.supervisor.struct-order',compact('dataStruct','totalPrice','outletAdress','outletName'));
     }
 }
