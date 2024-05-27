@@ -92,6 +92,14 @@
                                         class="me-2 confirm-text">
                                         <img src="{{ asset('assets/img/icons/delete.svg') }}" alt="img" />
                                     </a>
+                                    @if($order->order_status == 'Completed')
+
+                                    <a
+                                    href="{{ route('print-struct', $order->id) }}"
+                                        class="me-2 confirm-text">
+                                        <img src="{{ asset('assets/img/icons/printer.svg') }}" alt="img" />
+                                    </a>
+                                    @endif
                                 </td>
                             </tr>
                         @endforeach

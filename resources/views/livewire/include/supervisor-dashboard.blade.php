@@ -7,8 +7,8 @@
                 </div>
                 <div class="dash-widgetcontent">
                     <h5>
-                        Rp. <span class="counters"
-                                  data-count="{{ $CashBalance->amount }}">{{ number_format($CashBalance->amount, 0, ',', '.') }}</span>
+                        Rp. <span class=""
+                                  data-count="{{ $CashBalance->amount }}">{{ number_format($CashBalance->amount, 0, ',', '.') }},-</span>
                     </h5>
                     <h6>Total Saldo Kas</h6>
                 </div>
@@ -21,8 +21,8 @@
                 </div>
                 <div class="dash-widgetcontent">
                     <h5>
-                        Rp.<span class="counters"
-                                 data-count="{{ $income }}">{{ number_format($income, 0, ',', '.') }}</span>
+                        Rp.<span class=""
+                                 data-count="{{ $income }}">{{ number_format($income, 0, ',', '.') }},-</span>
                     </h5>
                     <h6>Total Pendapatan - {{ Carbon\Carbon::now()->isoFormat('MMMM YYYY') }}</h6>
                 </div>
@@ -35,8 +35,8 @@
                 </div>
                 <div class="dash-widgetcontent">
                     <h5>
-                        Rp.<span class="counters"
-                                 data-count="{{ $expense }}">{{ number_format($expense, 0, ',', '.') }}</span>
+                        Rp.<span class=""
+                                 data-count="{{ $expense }}">{{ number_format($expense, 0, ',', '.') }},-</span>
                     </h5>
                     <h6>Total Pengeluaran - {{ Carbon\Carbon::now()->isoFormat('MMMM YYYY') }}</h6>
                 </div>
@@ -49,8 +49,8 @@
                 </div>
                 <div class="dash-widgetcontent">
                     <h5>
-                        RP.<span class="counters"
-                                 data-count="{{ $profit }}">{{ number_format($profit, 0, ',', '.') }}</span>
+                        Rp.<span class=""
+                                 data-count="{{ $profit }}">{{ number_format($profit, 0, ',', '.') }},-</span>
                     </h5>
                     <h6>Total Keuntungan - {{ Carbon\Carbon::now()->isoFormat('MMMM YYYY') }}</h6>
                 </div>

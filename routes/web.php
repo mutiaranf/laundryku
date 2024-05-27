@@ -3,6 +3,7 @@
 use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Supervisor\PrintStruct;
 
 /*
 |--------------------------------------------------------------------------
@@ -95,6 +96,7 @@ Route::middleware([
         Route::get('/order-queue', \App\Livewire\Supervisor\OrderQueue::class)->name('order-queue');
         Route::get('/expense', \App\Livewire\Supervisor\Expense\Index::class)->name('expense');
         Route::get('/stockOutlet', \App\Livewire\Supervisor\Stock\Index::class)->name('stockOutlet');
+        Route::get('/print-struct/{id}', [PrintStruct::class, 'index'])->name('print-struct');
     });
 
 });
