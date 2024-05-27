@@ -61,7 +61,7 @@
             <div class="dash-count">
                 <div class="dash-counts">
                     <h4>{{ $totalCustomerCount }}</h4>
-                    <h5>Total Customers</h5>
+                    <h5>Total Pelanggan</h5>
                 </div>
                 <div class="dash-imgs">
                     <i data-feather="user"></i>
@@ -72,7 +72,7 @@
             <div class="dash-count das1">
                 <div class="dash-counts">
                     <h4>{{ $totalEmployeeCount }}</h4>
-                    <h5>Total Employee</h5>
+                    <h5>Total Karyawan</h5>
                 </div>
                 <div class="dash-imgs">
                     <i data-feather="user-check"></i>
@@ -94,7 +94,7 @@
             <div class="dash-count das3">
                 <div class="dash-counts">
                     <h4>{{ $totalOrderCount }}</h4>
-                    <h5>Total Order</h5>
+                    <h5>Total Pesanan</h5>
                 </div>
                 <div class="dash-imgs">
                     <i data-feather="file"></i>
