@@ -5,7 +5,7 @@
     <div class="page-header">
         <div class="page-title">
             <h4>Manajemen Pelanggan</h4>
-            <h6>Tambah/Perbarui Pelanggan</h6>
+            <h6>Perbarui Pelanggan</h6>
         </div>
     </div>
 

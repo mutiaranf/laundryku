@@ -5,7 +5,7 @@
     <div class="page-header">
         <div class="page-title">
             <h4>Manajemen Pengguna</h4>
-            <h6>Tambah/Perbarui Pengguna</h6>
+            <h6>Perbarui Pengguna</h6>
         </div>
     </div>
 

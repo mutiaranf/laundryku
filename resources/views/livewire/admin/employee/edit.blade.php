@@ -5,7 +5,7 @@
     <div class="page-header">
         <div class="page-title">
             <h4>Manajemen Karyawan</h4>
-            <h6>Tambah/Perbarui Karyawan</h6>
+            <h6>Perbarui Karyawan</h6>
         </div>
     </div>
 
