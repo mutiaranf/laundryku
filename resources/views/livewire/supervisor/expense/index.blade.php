@@ -11,8 +11,8 @@
 <div class="content">
     <div class="page-header">
         <div class="page-title">
-            <h4>Expense Transaction</h4>
-            <h6>Manage Expense Transaction</h6>
+            <h4>Transaksi Pengeluaran</h4>
+            <h6>Manajemen Pengelolaan Transaksi</h6>
         </div>
         <div class="page-btn">
             <a data-bs-toggle="modal" data-bs-target="#addExpenseModal" class="btn btn-added"><img
@@ -60,11 +60,11 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Name</th>
-                            <th>Amount</th>
-                            <th>Expense Date</th>
-                            <th>Description</th>
-                            <th>Actions</th>
+                            <th>Nama</th>
+                            <th>Jumlah</th>
+                            <th>Tanggal Pengeluaran</th>
+                            <th>Deskripsi</th>
+                            <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -101,7 +101,7 @@
             <div class="modal-dialog modal-xl">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Add Expense</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Tambah Pengeluaran</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -110,7 +110,7 @@
                                 <div class="col-lg-6">
                                     <div class="form-group
                                   ">
-                                        <label>Name</label>
+                                        <label>Nama</label>
                                         <input wire:model='name' type="text" class="form-control">
                                         @error('name')
                                             <span class="text-danger">{{ $message }}</span>
@@ -120,7 +120,7 @@
                                 <div class="col-lg-6">
                                     <div class="form-group
                                   ">
-                                        <label>Amount</label>
+                                        <label>Jumlah</label>
                                         <input wire:model='amount' type="text" class="form-control">
                                         @error('amount')
                                             <span class="text-danger">{{ $message }}</span>
@@ -130,7 +130,7 @@
                                 <div class="col-lg-6">
                                     <div class="form-group
                                   ">
-                                        <label>Expense Date</label>
+                                        <label>Tanggal Pengeluaran</label>
                                         <input wire:model='expense_date' type="date" class="form-control">
                                         @error('expense_date')
                                             <span class="text-danger">{{ $message }}</span>
@@ -143,7 +143,7 @@
                                 <div class="col-lg-12">
                                     <div class="form-group
                                   ">
-                                        <label>Description</label>
+                                        <label>Deskripsi</label>
                                         <textarea wire:model='description' class="form-control"></textarea>
                                         @error('description')
                                             <span class="text-danger">{{ $message }}</span>
