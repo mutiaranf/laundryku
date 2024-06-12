@@ -16,8 +16,7 @@
         </div>
         <div class="page-btn">
             <a data-bs-toggle="modal" data-bs-target="#addExpenseModal" class="btn btn-added"><img
-                    src="{{ asset('assets/img/icons/plus.svg') }} " alt="img" />Add
-                Expense</a>
+                    src="{{ asset('assets/img/icons/plus.svg') }} " alt="img" />Tambah Pengeluaran</a>
         </div>
     </div>
 
