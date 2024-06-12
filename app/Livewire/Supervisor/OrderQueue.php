@@ -28,7 +28,7 @@ class OrderQueue extends Component
     {
         $orders = Order::with('detailOrder', 'customer')
             ->where('outlet_id', $this->outlet_id)
-            ->whereMonth('created_at', now()->month)
+            ->whereDate('created_at', '>=', now()->subDays(30))
             ->orderByRaw("FIELD(order_status, 'Completed', 'Cancelled') ASC")
             ->paginate(5);
         $customer_count = Order::whereDate('created_at', today())->distinct('customer_id')->count('customer_id');
