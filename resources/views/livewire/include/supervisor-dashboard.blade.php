@@ -86,7 +86,7 @@
         <div class="col-lg-12 col-sm-12 col-12 d-flex">
             <div class="card flex-fill">
                 <div class="card-header pb-0 d-flex justify-content-between align-items-center">
-                    <h4 class="card-title mb-0">Pesanan Terbaru Hari Ini</h4>
+                    <h4 class="card-title mb-0">Pesanan baru-baru ini</h4>
                     <div class="dropdown">
                         <a href="javascript:void(0);" data-bs-toggle="dropdown" aria-expanded="false"
                            class="dropset">
