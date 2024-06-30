@@ -92,7 +92,7 @@
                         <div>
 
                             <p>{{ \Carbon\Carbon::now()->locale('id')->isoFormat('LL') }} <br> Mengetahui, <br>
-                                @if (Auth::user()->hasRole('administrator'))
+                                @if (Auth::user()->hasRole('superadmin'))
                                     Admin
                                 @elseif (Auth::user()->hasRole('supervisor'))
                                     Supervisor
