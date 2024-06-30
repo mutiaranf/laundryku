@@ -13,9 +13,7 @@ class Create extends Component
         return view('livewire.admin.customer.create');
     }
 
-    #[Validate('required')]
     public $name;
-    #[Validate('required')]
     public $phone;
     public $address;
     public $latitude;
@@ -23,7 +21,10 @@ class Create extends Component
 
 
     public function store(){
-        $this->validate();
+        $this->validate([
+            'name' => 'required',
+            'phone' => 'required|unique:customers',
+        ]);
 
         $customer = new Customer();
         $customer->name = $this->name;

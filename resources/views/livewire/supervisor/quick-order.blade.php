@@ -127,6 +127,14 @@
                             <label for="customerPhone" class="form-label">Phone</label>
                             <input wire:model='customerPhone' type="text" class="form-control" id="customerPhone"
                                 placeholder="phone">
+                            @error('customerPhone')
+                                @if ($message == 'The phone field is required.')
+                                    <span class="text-danger">Nomor telepon tidak boleh kosong</span>
+                                @else
+                                    <span class="text-danger">Nomor telepon sudah terdaftar</span>
+                                @endif
+
+                            @enderror
                         </div>
                         <div class="mb-4">
                             <label for="customerAddress" class="form-label">Address</label>

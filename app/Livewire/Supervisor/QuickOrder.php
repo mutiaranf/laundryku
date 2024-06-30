@@ -90,7 +90,7 @@ class QuickOrder extends Component
     {
         $this->validate([
             'customerName' => 'required',
-            'customerPhone' => 'required',
+            'customerPhone' => 'required|unique:customers,phone',
         ]);
 
         $customer = new Customer();

@@ -17,6 +17,10 @@ use App\Http\Controllers\Supervisor\PrintStruct;
 */
 
 Route::get('/', function () {
+    return view('home');
+});
+
+Route::get('/admin', function () {
     return view('auth.login');
 });
 
@@ -55,38 +59,7 @@ Route::middleware([
         Route::get('/report', \App\Livewire\Admin\Report\PrintReport::class)->name('report');
 
 
-        Route::get('/print-pdf-order-report-day', function () {
 
-            $orders = session('orders');
-
-            if ($orders == null) {
-                return redirect()->back()->with('error', 'Data orders tidak ditemukan.');
-            }
-            return view('export-pdf-view.pdf-report-day', compact('orders'));
-
-        })->name('print-pdf-order-report-day');
-
-        Route::get('/print-pdf-order-report-month', function () {
-
-            $orders = session('orders');
-
-            if ($orders == null) {
-                return redirect()->back()->with('error', 'Data orders tidak ditemukan.');
-            }
-            return view('export-pdf-view.pdf-report-day', compact('orders'));
-
-        })->name('print-pdf-order-report-month');
-
-        Route::get('/print-pdf-order-report-year', function () {
-
-            $orders = session('orders');
-
-            if ($orders == null) {
-                return redirect()->back()->with('error', 'Data orders tidak ditemukan.');
-            }
-            return view('export-pdf-view.pdf-report-day', compact('orders'));
-
-        })->name('print-pdf-order-report-year');
 
     });
     // route for supervisor
@@ -97,6 +70,42 @@ Route::middleware([
         Route::get('/expense', \App\Livewire\Supervisor\Expense\Index::class)->name('expense');
         Route::get('/stockOutlet', \App\Livewire\Supervisor\Stock\Index::class)->name('stockOutlet');
         Route::get('/print-struct/{id}', [PrintStruct::class, 'index'])->name('print-struct');
+
+        // Report
+        Route::get('/report-supervisor', \App\Livewire\Supervisor\Report\PrintReportSupervisor::class)->name('report-supervisor');
     });
+
+    Route::get('/print-pdf-order-report-day', function () {
+
+        $orders = session('orders');
+
+        if ($orders == null) {
+            return redirect()->back()->with('error', 'Data orders tidak ditemukan.');
+        }
+        return view('export-pdf-view.pdf-report-day', compact('orders'));
+
+    })->name('print-pdf-order-report-day');
+
+    Route::get('/print-pdf-order-report-month', function () {
+
+        $orders = session('orders');
+
+        if ($orders == null) {
+            return redirect()->back()->with('error', 'Data orders tidak ditemukan.');
+        }
+        return view('export-pdf-view.pdf-report-day', compact('orders'));
+
+    })->name('print-pdf-order-report-month');
+
+    Route::get('/print-pdf-order-report-year', function () {
+
+        $orders = session('orders');
+
+        if ($orders == null) {
+            return redirect()->back()->with('error', 'Data orders tidak ditemukan.');
+        }
+        return view('export-pdf-view.pdf-report-day', compact('orders'));
+
+    })->name('print-pdf-order-report-year');
 
 });

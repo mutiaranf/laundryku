@@ -42,11 +42,18 @@ class Index extends Component
 
     public function delete($id)
     {
-        $customer = \App\Models\Customer::find($id);
-        $customer->delete();
-        $this->dispatch('success', [
-            'message' => 'Customer deleted successfully.'
-        ]);
+        try{
+            $customer = \App\Models\Customer::find($id);
+            $customer->delete();
+            $this->dispatch('success', [
+                'message' => 'Customer deleted successfully.'
+            ]);
+        } catch (\Exception $e) {
+            $this->dispatch('error', [
+                'message' => 'Customer is related to another data.'
+            ]);
+        }
+
     }
 
 

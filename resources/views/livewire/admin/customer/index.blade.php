@@ -1,7 +1,7 @@
 @push('styles')
-    <link rel="stylesheet" href="{{asset('assets/css/dataTables.bootstrap4.min.css')}}"/>
-    <link rel="stylesheet" href="{{asset('assets/plugins/select2/css/select2.min.css') }}"/>
-    <link rel="stylesheet" href="{{asset('assets/plugins/toastr/toatr.css')}}"/>
+    <link rel="stylesheet" href="{{ asset('assets/css/dataTables.bootstrap4.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/plugins/select2/css/select2.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/plugins/toastr/toatr.css') }}" />
     <style>
         input::placeholder {
             font-size: 15px !important;
@@ -15,9 +15,8 @@
             <h6>Kelola Pelanggan</h6>
         </div>
         <div class="page-btn">
-            <a href="{{route('customer.create')}}" class="btn btn-added" wire:navigate><img
-                    src="{{ asset('assets/img/icons/plus.svg') }} "
-                    alt="img"/>Tambah
+            <a href="{{ route('customer.create') }}" class="btn btn-added" wire:navigate><img
+                    src="{{ asset('assets/img/icons/plus.svg') }} " alt="img" />Tambah
                 Pelanggan</a>
         </div>
     </div>
@@ -28,12 +27,13 @@
                 <div class="search-set">
                     <div wire:ignore class="search-path">
                         <a class="btn btn-filter" id="filter_search">
-                            <img src="{{ asset('assets/img/icons/filter.svg') }}" alt="img"/>
-                            <span><img src="{{ asset('assets/img/icons/closes.svg') }}" alt="img"/></span>
+                            <img src="{{ asset('assets/img/icons/filter.svg') }}" alt="img" />
+                            <span><img src="{{ asset('assets/img/icons/closes.svg') }}" alt="img" /></span>
                         </a>
                     </div>
                     <div class="search-input me-2">
-                        <input wire:model.live.debounce="search" type="text" placeholder="Cari" class="form-control"/>
+                        <input wire:model.live.debounce="search" type="text" placeholder="Cari"
+                            class="form-control" />
                     </div>
                     <!-- per page -->
                     <div class="per-page me-2">
@@ -47,7 +47,7 @@
                         </select>
                     </div>
                     <a wire:click="resetFilter" class="btn btn-sm btn-primary ms-auto"><img
-                            src="{{ asset('assets/img/icons/reverse.svg') }}" alt="img"/></a>
+                            src="{{ asset('assets/img/icons/reverse.svg') }}" alt="img" /></a>
 
 
                 </div>
@@ -56,7 +56,7 @@
 
                         <li>
                             <a wire:click='export' data-bs-toggle="tooltip" data-bs-placement="top" title="excel"><img
-                                    src="{{ asset('assets/img/icons/excel.svg') }}" alt="img"/></a>
+                                    src="{{ asset('assets/img/icons/excel.svg') }}" alt="img" /></a>
                         </li>
 
                     </ul>
@@ -69,19 +69,19 @@
                         <div class="col-lg-2 col-sm-6 col-12">
                             <div class="form-group">
                                 <input wire:model.live.debounce="phoneSearch" type="text"
-                                       placeholder="Masukkan Nomor Telepon"/>
+                                    placeholder="Masukkan Nomor Telepon" />
                             </div>
                         </div>
                         <div class="col-lg-2 col-sm-6 col-12">
                             <div class="form-group">
                                 <input wire:model.live.debounce="addressSearch" type="text"
-                                       placeholder="Masukkan Alamat"/>
+                                    placeholder="Masukkan Alamat" />
                             </div>
                         </div>
                         <div class="col-lg-1 col-sm-6 col-12 ms-auto">
                             <div class="form-group">
                                 <a wire:click="resetFilter" class="btn btn-filters ms-auto"><img
-                                        src="{{ asset('assets/img/icons/reverse.svg') }}" alt="img"/></a>
+                                        src="{{ asset('assets/img/icons/reverse.svg') }}" alt="img" /></a>
                             </div>
                         </div>
                     </div>
@@ -95,52 +95,52 @@
                 @endif
                 <table class="table ">
                     <thead>
-                    <tr>
-                        <th>No</th>
-                        <th>Nama</th>
-                        <th>Nomor Telepon</th>
-                        <th>Alamat</th>
-                        <th>Lintang</th>
-                        <th>Bujur</th>
-                        <th>Tindakan</th>
+                        <tr>
+                            <th>No</th>
+                            <th>Nama</th>
+                            <th>Nomor Telepon</th>
+                            <th>Alamat</th>
+                            <th>Lintang</th>
+                            <th>Bujur</th>
+                            <th>Tindakan</th>
 
-                    </tr>
+                        </tr>
                     </thead>
                     <tbody>
-                    @foreach($customers as $index => $customer)
-                        <tr>
-                            <td>{{ $customers->firstItem() + $index }}</td>
-                            <td>{{ $customer->name }}</td>
-                            <td>{{ $customer->phone }}</td>
-                            <td>{{ $customer->address }}</td>
-                            <td>{{ $customer->latitude }}</td>
-                            <td>{{ $customer->longitude }}</td>
-                            <td>
-                                <a class="me-2" href="{{route('customer.edit', $customer->id)}}">
-                                    <img src="{{asset('assets/img/icons/edit.svg')}}" alt="img"/>
-                                </a>
-                                <a wire:click="delete({{ $customer->id }})"  class="me-2 confirm-text">
-                                    <img src="{{asset('assets/img/icons/delete.svg')}}" alt="img"/>
-                                </a>
-                            </td>
-                        </tr>
-                    @endforeach
+                        @foreach ($customers as $index => $customer)
+                            <tr>
+                                <td>{{ $customers->firstItem() + $index }}</td>
+                                <td>{{ $customer->name }}</td>
+                                <td>{{ $customer->phone }}</td>
+                                <td>{{ $customer->address }}</td>
+                                <td>{{ $customer->latitude }}</td>
+                                <td>{{ $customer->longitude }}</td>
+                                <td>
+                                    <a class="me-2" href="{{ route('customer.edit', $customer->id) }}">
+                                        <img src="{{ asset('assets/img/icons/edit.svg') }}" alt="img" />
+                                    </a>
+                                    <a wire:click="delete({{ $customer->id }})" class="me-2 confirm-text">
+                                        <img src="{{ asset('assets/img/icons/delete.svg') }}" alt="img" />
+                                    </a>
+                                </td>
+                            </tr>
+                        @endforeach
 
 
                     </tbody>
                 </table>
-                    <div class="d-flex mt-3">
-                        <div class="me-auto">
-                            {{ $customers->links() }}
-                        </div>
+                <div class="d-flex mt-3">
+                    <div class="me-auto">
+                        {{ $customers->links() }}
                     </div>
+                </div>
 
 
             </div>
         </div>
         <!-- Modal -->
         <div wire:ignore.self class="modal fade" id="showOutletModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-             aria-hidden="true">
+            aria-hidden="true">
             <div class="modal-dialog modal-xl">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -181,16 +181,22 @@
                 toastr.success(data[0].message);
             });
 
+            Livewire.on('error', data => {
+                // toaster setup
+                toastr.options = {
+                    "closeButton": true,
+                }
+                toastr.error(data[0].message);
+            });
+
             // create alert
             function yourLoggedin() {
                 toastr.warning('Anda Telah Masuk!');
             }
 
             // hide alrt after 2 seconds
-            setTimeout(function () {
+            setTimeout(function() {
                 $('.alert').fadeOut('fast');
             }, 3000);
-
-
         </script>
-@endpush
+    @endpush
