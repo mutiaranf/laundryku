@@ -14,10 +14,10 @@
 
 
     <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="assets/assets/css/fontawesome.css">
-    <link rel="stylesheet" href="assets/assets/css/templatemo-scholar.css">
-    <link rel="stylesheet" href="assets/assets/css/owl.css">
-    <link rel="stylesheet" href="assets/assets/css/animate.css">
+    <link rel="stylesheet" href="{{ asset('assets/assets/css/fontawesome.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/assets/css/templatemo-scholar.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/assets/css/owl.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/assets/css/animate.css') }}">
     <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
 <!--
 
@@ -559,12 +559,12 @@ https://templatemo.com/tm-586-scholar
 
   <!-- Scripts -->
   <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-  <script src="assets/assets/js/isotope.min.js"></script>
-  <script src="assets/assets/js/owl-carousel.js"></script>
-  <script src="assets/assets/js/counter.js"></script>
-  <script src="assets/assets/js/custom.js"></script>
+  <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
+  <script src="{{ asset('vendor/bootstrap/js/bootstrap.min.js') }}s"></script>
+  <script src="{{ asset('assets/assets/js/isotope.min.js') }}"></script>
+  <script src="{{ asset('assets/assets/js/owl-carousel.js') }}"></script>
+  <script src="{{ asset('assets/assets/js/counter.js') }}s"></script>
+  <script src="{{ asset('assets/assets/js/custom.js') }}"></script>
 
   </body>
 </html>
