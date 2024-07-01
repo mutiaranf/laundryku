@@ -26,6 +26,7 @@ TemplateMo 586 Scholar
 https://templatemo.com/tm-586-scholar
 
 -->
+@livewireStyles
   </head>
 
 <body>
@@ -556,7 +557,8 @@ https://templatemo.com/tm-586-scholar
       </div>
     </div>
   </footer>
-
+  
+  @livewireScripts
   <!-- Scripts -->
   <!-- Bootstrap core JavaScript -->
   <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
