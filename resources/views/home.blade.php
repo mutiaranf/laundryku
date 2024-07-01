@@ -563,10 +563,10 @@ https://templatemo.com/tm-586-scholar
   <!-- Scripts -->
   <!-- Bootstrap core JavaScript -->
   <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
-  <script src="{{ asset('vendor/bootstrap/js/bootstrap.min.js') }}s"></script>
+  <script src="{{ asset('vendor/bootstrap/js/bootstrap.min.js') }}"></script>
   <script src="{{ asset('assets/assets/js/isotope.min.js') }}"></script>
   <script src="{{ asset('assets/assets/js/owl-carousel.js') }}"></script>
-  <script src="{{ asset('assets/assets/js/counter.js') }}s"></script>
+  <script src="{{ asset('assets/assets/js/counter.js') }}"></script>
   <script src="{{ asset('assets/assets/js/custom.js') }}"></script>
 
   </body>
