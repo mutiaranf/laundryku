@@ -540,7 +540,7 @@ https://templatemo.com/tm-586-scholar
                 </div>
                 <div class="col-lg-12">
                   <fieldset>
-                    <button type="submit" id="form-submit" class="orange-button">Kirim Pesan Sekarang</button>
+                    <button  id="form-submit" class="orange-button">Kirim Pesan Sekarang</button>
                   </fieldset>
                 </div>
               </div>
