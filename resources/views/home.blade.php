@@ -96,7 +96,7 @@ https://templatemo.com/tm-586-scholar
                 <p>Nikmati Pakaian Bersih dengan Cepat, Kami mengerti betapa berharganya waktu Anda. Dengan layanan cepat kami, pakaian Anda akan bersih dan siap pakai dalam waktu singkat.</p>
                 <div class="buttons">
                   <div class="main-button">
-                    <a href="#">Pesan Sekarang</a>
+                    <a href="https://wa.me/+6282324462520?text=Halo,%20saya%20tertarik%20untuk%20pesan%20laundry%20anda">Pesan Sekarang</a>
                   </div>
 
                 </div>
@@ -109,7 +109,7 @@ https://templatemo.com/tm-586-scholar
                 <p>Hasil Bersih dan Wangi, Kami menggunakan deterjen berkualitas tinggi yang ramah lingkungan untuk memastikan pakaian Anda selalu bersih, wangi, dan terawat.</p>
                 <div class="buttons">
                   <div class="main-button">
-                    <a href="#">Pesan Sekarang</a>
+                    <a href="https://wa.me/+6282324462520?text=Halo,%20saya%20tertarik%20untuk%20pesan%20laundry%20anda">Pesan Sekarang</a>
                   </div>
                 </div>
               </div>
@@ -121,7 +121,7 @@ https://templatemo.com/tm-586-scholar
                 <p>Tim Ahli dan Berpengalaman: Pakaian Anda ditangani oleh tim profesional yang berpengalaman dalam industri laundry. Kami memastikan setiap pakaian mendapatkan perawatan terbaik.</p>
                 <div class="buttons">
                   <div class="main-button">
-                    <a href="#">Pesan Sekarang</a>
+                    <a href="https://wa.me/+6282324462520?text=Halo,%20saya%20tertarik%20untuk%20pesan%20laundry%20anda">Pesan Sekarang</a>
                   </div>
                 </div>
               </div>
